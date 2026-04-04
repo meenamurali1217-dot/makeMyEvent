@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Event Budget Planner — Quick Mode</title>
+<link rel="stylesheet" href="../CSS/Packege-vendor-page-1.css">
+</head>
+<body>
+
+<div class="planner">
+
+  <div class="top-bar">
+    <h2>My event budget planner</h2>
+    <button class="reset-btn" onclick="resetAll()">Reset</button>
+  </div>
+
+
+
+  <!-- SERVICES TABLE -->
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th>Service</th>
+          <th>Suggested budget</th>
+          <th>Your budget (&#8377;)</th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+
+  <!-- LIVE SUMMARY -->
+  <div class="summary-box">
+    <div class="summary-label">Estimated total</div>
+    <div id="summaryInner">
+      <div class="empty-note">Select services above to see your budget</div>
+    </div>
+  </div>
+
+  <!-- SUBMIT -->
+  <button class="submit-btn" onclick="handleSubmit()">Review &amp; Submit Quotation</button>
+
+  <!-- SAVED ENTRIES -->
+  <div class="saved-section" id="savedSection" style="display:none">
+    <h3>Saved quotations</h3>
+    <div class="saved-list" id="savedList"></div>
+  </div>
+
+</div>
+
+<!-- MODAL -->
+<div class="overlay" id="overlay" onclick="overlayClick(event)">
+  <div class="modal" id="modal">
+    <button class="modal-close" onclick="closeModal()">&#x2715;</button>
+
+    <div class="modal-header">
+      <div class="tag">Quotation summary</div>
+      <h3>Event budget estimate</h3>
+      <p id="mGenDate">—</p>
+    </div>
+
+
+
+    <div class="modal-section">
+      <div class="modal-section-title">Selected services</div>
+      <div class="modal-services" id="mServices"></div>
+    </div>
+
+    <div class="modal-total">
+      <span class="mlabel">Total estimated budget</span>
+      <span class="mamount" id="mTotal">&#8377;0</span>
+    </div>
+
+    <div class="modal-actions">
+      <button class="btn-print" onclick="window.print()">&#128424; Print / Save PDF</button>
+      <button class="btn-save" id="btnSave" onclick="saveQuote()">&#128190; Save to records</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+
+</body>
+<script src="../JavaScript/Packege-vendor-page-1.js"></script>
+</html>

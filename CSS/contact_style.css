@@ -1,0 +1,524 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+
+#progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 5px;
+  background: #2196f3;
+  width: 0%;
+  z-index: 9999;
+}
+
+body {
+  animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+body {
+  background-size: 400% 400%;
+  animation: gradientBG 10s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+/* ================= BODY & LAYOUT ================= */
+/* Force body to take full height for sticky footer */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+/* This pushes the footer to the bottom if content is short */
+main.content {
+    flex: 1;
+}
+
+/* ================= NAVBAR ================= */
+
+.image {
+ border-radius: 5px;
+ width: 30px;
+ margin: 3px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    color: black;
+}
+
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: transparent;
+  /* box-shadow: 0 2px 8px rgba(0,0,0,0.1); */
+}
+
+
+/* ----------------Navbar Link Hover Effect---------- */
+
+nav a {
+  position: relative;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background: #2196f3;
+  left: 0;
+  bottom: -3px;
+  transition: 0.3s;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  padding: 5px;
+}
+
+nav a:hover {
+  color: #2196f3;
+}
+
+/* Search Bar */
+.search-box { position: relative; }
+.search-box input { padding: 8px 14px; padding-left: 35px; border-radius: 20px; border: 1px solid #ccc; width: 250px; outline: none; transition: border-color 0.3s; }
+.search-box input:focus { border-color: #2196f3; }
+.search-box i { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: #888; }
+
+.auth {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image2 {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Wishlist */
+.icon-btn {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: black;
+}
+
+.login {
+  background: #2196f3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 8px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  color: white;
+  border: none
+}
+
+.auth a {
+  text-decoration: none;
+  color: white;
+}
+
+/* -------------Button Animation---------- */
+button, .login {
+  transition: all 0.3s ease;
+}
+
+button:hover, .login:hover {
+  transform: scale(1.1);
+  background: #1976d2;
+}
+
+.head_and_hero {
+     background: url(https://png.pngtree.com/thumb_back/fh260/background/20240223/pngtree-flat-lay-iceberg-roses-with-empty-space-image_15628924.jpg) center/cover no-repeat;
+      color: white;
+      position: relative;
+}
+
+/* Banner */
+    .contact-banner {
+      text-align: center;
+      padding: 70px 20px;
+    }
+    .contact-banner h1 {
+      font-size: 2.2em;
+      margin-bottom: 10px;
+      color: #461220;
+    }
+    .contact-banner p {
+      font-size: 1.1em;
+      margin-bottom: 20px;
+      color: #461220;
+    }
+    .contact-banner button {
+      background-color: #16a34a;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 5px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .contact-banner button:hover {
+      background-color: #15803d;
+    }
+    .banner-images {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 25px;
+      position: relative;
+      z-index: 2;
+    }
+    .banner-images img {
+      width: 180px;
+      border-radius: 10px;
+      border: 3px solid #fff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    /* Main Container */
+    .main-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      padding: 40px 20px;
+      background-color: #e9ecef;
+    }
+
+    /* Form Section */
+    .form-section {
+     
+      background-color: #fff;
+      border: 2px solid #2196f3;
+      border-radius: 10px;
+      padding: 25px;
+      width: 400px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .form-section h2 {
+      color: #023047;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    form input, form select, form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 0.95em;
+    }
+    form button {
+      background-color: #2196f3;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 5px;
+      font-size: 1em;
+      cursor: pointer;
+      width: 100%;
+      transition: 0.3s;
+    }
+
+    /* Why Choose Us */
+    .why-choose {
+      background-color: #fff;
+      border: 2px solid #2196f3;
+      border-radius: 10px;
+      padding: 25px;
+      width: 400px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .why-choose h2 {
+      color: #023047;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    .why-choose ul {
+      list-style: none;
+      padding: 0;
+    }
+    .why-choose li {
+      margin: 10px 0;
+      display: flex;
+      align-items: center;
+      font-size: 0.95em;
+    }
+    .why-choose li img {
+      width: 24px;
+      margin-right: 10px;
+    }
+
+    /* Extra Benefits (inside Why Choose Us) */
+
+    .extra-benefits {
+      background-color: #caf0f8;
+      text-align: center;
+      padding: 20px;
+      border-top: 2px solid #023047;
+      border-radius: 10px;
+      margin-top: 25px;
+    }
+    .extra-benefits h3 {
+      color: #023047;
+      margin-bottom: 15px;
+    }
+    .benefit-items {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    .benefit-item {
+      /* b   */
+      border: 1px solid #023047;
+      border-radius: 10px;
+      padding: 10px;
+      width: 120px;
+      text-align: center;
+      font-size: 0.85em;
+      transition: 0.3s;
+    }
+    .benefit-item:hover {
+      background-color: #90e0ef;
+    }
+    .benefit-item img {
+      width: 35px;
+      margin-bottom: 8px;
+    }
+
+
+/* ------------SCROLL PROGRESS BAR-------------- */
+
+#progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 5px;
+  background: #2196f3;
+  width: 0%;
+  z-index: 9999;
+}
+
+
+
+#loader {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #ccc;
+  border-top: 5px solid #2196f3;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.card {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.6);
+}
+
+/* ================= FOOTER (FIXED) ================= */
+footer {
+    background-color: #2196f3;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    display: grid;
+    /* Clean grid distribution */
+    grid-template-columns: 1.2fr 1fr 1.2fr 1.5fr; 
+    gap: 30px;
+    padding: 70px 60px 40px 60px;
+    margin-bottom: 0;
+    width: 100%;
+    line-height: 26px;
+}
+
+.act {
+    color: goldenrod;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* General Text & Icons */
+footer p {
+    font-size: 14px;
+    margin-bottom: 15px;
+    opacity: 0.9;
+}
+
+footer i {
+    margin-right: 8px;
+    color: goldenrod;
+}
+
+/* Vertical Divider */
+.end {
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
+    padding-left: 30px;
+    height: auto; /* Removed fixed height to prevent overflow issues */
+}
+
+/* Links Styling */
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a, 
+.legal-links a,
+.map-link {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    transition: 0.3s ease;
+    display: inline-block;
+}
+
+.footer-links a:hover,
+.map-link:hover {
+    color: goldenrod;
+    transform: translateX(5px);
+}
+
+.legal-links {
+    margin-top: 15px;
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.social-icons a {
+    width: 35px;
+    height: 35px;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: white;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.social-icons a i {
+    margin-right: 0;
+    color: white;
+}
+
+.social-icons a:hover {
+    background: goldenrod;
+    transform: translateY(-3px);
+}
+
+/* Copyright Text */
+.copyright {
+    font-size: 12px;
+    margin-bottom: 20px;
+    opacity: 0.7;
+}
+
+/* CTA Button (Book Now) */
+#down {
+    background-color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-top: 10px;
+}
+
+#down #no {
+    text-decoration: none;
+    color: #2196f3;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+#down:hover {
+    background-color: goldenrod;
+    transform: scale(1.05);
+}
+
+#down:hover #no {
+    color: white;
+}
