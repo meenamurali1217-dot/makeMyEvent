@@ -1,27 +1,16 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Event Nest</title>
-    <link
-      rel="stylesheet"
-      href="{{url_for('static', filename='style.css') }}"
-    />
-    <!-- <link rel="stylesheet" href="../event-nest/master_style.css"> -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-    />
-    <link rel="stylesheet" href="../CSS/wedding_style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
-  </head>
-  <body>
+<head>
+  <meta charset="UTF-8" />
+  <title>Wedding Ceremony | EventNest</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../CSS/wedding_style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+</head>
+<body>
 
-    <div class="head_and_hero">
+ 
+  
       <!-- Header -->
       <header class="navbar">
         <div class="logo">
@@ -51,6 +40,12 @@
             >About</a
           >
         </nav>
+
+        <div class="icon-btn">
+      ❤️
+      <span>Wishlist</span>
+    </div>
+    
         <div class="auth">
           <a href="./event-nest/Signup/signup.html"
             ><button class="login">
@@ -63,13 +58,14 @@
             </button></a
           >
         </div>
-      </header>  
+      </header>
 
-    <section class="hero">
+
+  <section class="hero">
       <img src="https://media.istockphoto.com/id/866987706/photo/indian-wedding-hands.jpg?s=612x612&w=0&k=20&c=6L-u9qhFPv9MjDnF4UK4AqjVbDKM4_8Xad72IHhwPZE=" alt="Wedding Background">
-    </section>
-  
-<section class="event-header">
+  </section>
+
+  <section class="event-header">
     <div class="header-info">
       <div class="event-thumb"> 
           <img src="https://media.istockphoto.com/id/866987706/photo/indian-wedding-hands.jpg?s=612x612&w=0&k=20&c=6L-u9qhFPv9MjDnF4UK4AqjVbDKM4_8Xad72IHhwPZE=" alt="Ceremony">
@@ -81,219 +77,372 @@
         </div>
       </div>
     </div>
-</section>
+  </section>
 
-<section class="offers-section">
-  <h2>Offers</h2>
 
-  <div class="offers-container">
 
-    <!-- Card 1 -->
-    <div class="offer-card">
-      <img src="https://via.placeholder.com/120" alt="">
-      <div class="offer-content">
-        <p class="tc">T&C'S APPLY</p>
-        <h3>Make Your Travel Dreams Come True with Up to 25% Off</h3>
-        <p class="desc">on flights, hotels, holiday packages, cabs & buses.</p>
-        <a href="#" class="view-btn">VIEW</a>
-      </div>
+
+<!-- CARD SLIDER -->
+<section class="slider-section">
+  <h2>Popular Rides</h2>
+
+  <div class="slider">
+
+    <button class="prev">&#10094;</button>
+
+    <div class="card-container" id="cardContainer">
+
+      
+      <div class="card">
+    <img src="https://th.bing.com/th?id=ORMS.839ab2de53776da8a618116048102daf&pid=Wdp&w=312&h=196&qlt=90&c=1&rs=1&dpr=1&p=0" class="card-img-top" alt="Card image">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+    <ul class="list-group">
+      <li class="list-group-item">An item</li>
+      <li class="list-group-item">A second item</li>
+      <li class="list-group-item">A third item</li>
+    </ul>
+    <div class="card-body card-links">
+      <a href="#" class="card-link">Card link</a>
+      <a href="#" class="card-link">Another link</a>
+    </div>
+  </div>
+
+       <div class="card">
+    <img src="https://th.bing.com/th?id=ORMS.839ab2de53776da8a618116048102daf&pid=Wdp&w=312&h=196&qlt=90&c=1&rs=1&dpr=1&p=0" class="card-img-top" alt="Card image">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+    <ul class="list-group">
+      <li class="list-group-item">An item</li>
+      <li class="list-group-item">A second item</li>
+      <li class="list-group-item">A third item</li>
+    </ul>
+    <div class="card-body card-links">
+      <a href="#" class="card-link">Card link</a>
+      <a href="#" class="card-link">Another link</a>
+    </div>
+  </div>
+
+       <div class="card">
+    <img src="https://th.bing.com/th?id=ORMS.839ab2de53776da8a618116048102daf&pid=Wdp&w=312&h=196&qlt=90&c=1&rs=1&dpr=1&p=0" class="card-img-top" alt="Card image">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+    <ul class="list-group">
+      <li class="list-group-item">An item</li>
+      <li class="list-group-item">A second item</li>
+      <li class="list-group-item">A third item</li>
+    </ul>
+    <div class="card-body card-links">
+      <a href="#" class="card-link">Card link</a>
+      <a href="#" class="card-link">Another link</a>
+    </div>
+  </div>
+
+       <div class="card">
+    <img src="https://th.bing.com/th?id=ORMS.839ab2de53776da8a618116048102daf&pid=Wdp&w=312&h=196&qlt=90&c=1&rs=1&dpr=1&p=0" class="card-img-top" alt="Card image">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+    <ul class="list-group">
+      <li class="list-group-item">An item</li>
+      <li class="list-group-item">A second item</li>
+      <li class="list-group-item">A third item</li>
+    </ul>
+    <div class="card-body card-links">
+      <a href="#" class="card-link">Card link</a>
+      <a href="#" class="card-link">Another link</a>
+    </div>
+  </div>
+
+        <div class="card">
+    <img src="https://th.bing.com/th?id=ORMS.839ab2de53776da8a618116048102daf&pid=Wdp&w=312&h=196&qlt=90&c=1&rs=1&dpr=1&p=0" class="card-img-top" alt="Card image">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+    <ul class="list-group">
+      <li class="list-group-item">An item</li>
+      <li class="list-group-item">A second item</li>
+      <li class="list-group-item">A third item</li>
+    </ul>
+    <div class="card-body card-links">
+      <a href="#" class="card-link">Card link</a>
+      <a href="#" class="card-link">Another link</a>
+    </div>
+  </div>
+
+       <div class="card">
+    <img src="https://th.bing.com/th?id=ORMS.839ab2de53776da8a618116048102daf&pid=Wdp&w=312&h=196&qlt=90&c=1&rs=1&dpr=1&p=0" class="card-img-top" alt="Card image">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+    <ul class="list-group">
+      <li class="list-group-item">An item</li>
+      <li class="list-group-item">A second item</li>
+      <li class="list-group-item">A third item</li>
+    </ul>
+    <div class="card-body card-links">
+      <a href="#" class="card-link">Card link</a>
+      <a href="#" class="card-link">Another link</a>
+    </div>
+  </div>
+
+       <div class="card">
+    <img src="https://th.bing.com/th?id=ORMS.839ab2de53776da8a618116048102daf&pid=Wdp&w=312&h=196&qlt=90&c=1&rs=1&dpr=1&p=0" class="card-img-top" alt="Card image">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+    <ul class="list-group">
+      <li class="list-group-item">An item</li>
+      <li class="list-group-item">A second item</li>
+      <li class="list-group-item">A third item</li>
+    </ul>
+    <div class="card-body card-links">
+      <a href="#" class="card-link">Card link</a>
+      <a href="#" class="card-link">Another link</a>
+    </div>
+  </div>
+
+       <div class="card">
+    <img src="https://th.bing.com/th?id=ORMS.839ab2de53776da8a618116048102daf&pid=Wdp&w=312&h=196&qlt=90&c=1&rs=1&dpr=1&p=0" class="card-img-top" alt="Card image">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+    <ul class="list-group">
+      <li class="list-group-item">An item</li>
+      <li class="list-group-item">A second item</li>
+      <li class="list-group-item">A third item</li>
+    </ul>
+    <div class="card-body card-links">
+      <a href="#" class="card-link">Card link</a>
+      <a href="#" class="card-link">Another link</a>
+    </div>
+  </div>
+
     </div>
 
-    <!-- Card 2 -->
-    <div class="offer-card">
-      <img src="https://via.placeholder.com/120" alt="">
-      <div class="offer-content">
-        <p class="tc">T&C'S APPLY</p>
-        <h3>Explore Top Routes for Outstation Cabs</h3>
-        <p class="desc">Starting @ ₹10/km & book reliable journeys with us!</p>
-        <a href="#" class="view-btn">VIEW</a>
-      </div>
-    </div>
-
-    <!-- Card 3 -->
-    <div class="offer-card">
-      <img src="https://via.placeholder.com/120" alt="">
-      <div class="offer-content">
-        <p class="tc">T&C'S APPLY</p>
-        <h3>CELEBRATE THIS RAM NAVAMI</h3>
-        <p class="desc">At Ayodhya, Rameshwaram & Nashik with big savings</p>
-        <a href="#" class="view-btn">VIEW</a>
-      </div>
-    </div>
-
-    <!-- Card 4 -->
-    <div class="offer-card">
-      <img src="https://via.placeholder.com/120" alt="">
-      <div class="offer-content">
-        <p class="tc">T&C'S APPLY</p>
-        <h3>Your Outstation Cabs Made More Comfortable</h3>
-        <p class="desc">with New Features!</p>
-        <a href="#" class="view-btn">VIEW</a>
-      </div>
-    </div>
+    <button class="next">&#10095;</button>
 
   </div>
 </section>
 
+<div class="main-container">
 
 
-<section class="routes-section">
-  <div class="routes-box">
-
-    <div class="route-item">
-      <img src="https://via.placeholder.com/60" alt="">
-      <div>
-        <h4>Cabs From Delhi To</h4>
-        <p>Agra, Jaipur, Dehradun, Haridwar, Chandigarh</p>
-      </div>
-    </div>
-
-    <div class="route-item">
-      <img src="https://via.placeholder.com/60" alt="">
-      <div>
-        <h4>Cabs From Agra To</h4>
-        <p>New Delhi, Gurgaon, Noida, Faridabad, Ghaziabad</p>
-      </div>
-    </div>
-
-    <div class="route-item">
-      <img src="https://via.placeholder.com/60" alt="">
-      <div>
-        <h4>Cabs From Jaipur To</h4>
-        <p>New Delhi, Gurgaon, Noida, Faridabad, Ghaziabad</p>
-      </div>
-    </div>
-
-    <div class="route-item">
-      <img src="https://via.placeholder.com/60" alt="">
-      <div>
-        <h4>Cabs From Pune To</h4>
-        <p>Mumbai, Shirdi, Mahabaleshwar, Nasik, Aurangabad</p>
-      </div>
-    </div>
-
-    <div class="route-item">
-      <img src="https://via.placeholder.com/60" alt="">
-      <div>
-        <h4>Cabs From Mumbai To</h4>
-        <p>Pune, Nasik, Shirdi, Lonavala, Mahabaleshwar</p>
-      </div>
-    </div>
-
-    <div class="route-item">
-      <img src="https://via.placeholder.com/60" alt="">
-      <div>
-        <h4>Cabs From Chandigarh To</h4>
-        <p>New Delhi, Shimla, Manali, Gurgaon, Noida</p>
-      </div>
-    </div>
-
-    <div class="route-item">
-      <img src="https://via.placeholder.com/60" alt="">
-      <div>
-        <h4>Cabs From Bangalore To</h4>
-        <p>Ooty, Madikeri, Coorg, Vellore</p>
-      </div>
-    </div>
-
-    <div class="route-item">
-      <img src="https://via.placeholder.com/60" alt="">
-      <div>
-        <h4>Cabs From Chennai To</h4>
-        <p>Vellore, Pondicherry, Bangalore, Tirupati</p>
-      </div>
-    </div>
-
-    <div class="route-item">
-      <img src="https://via.placeholder.com/60" alt="">
-      <div>
-        <h4>Cabs From Dehradun To</h4>
-        <p>Mussoorie, New Delhi, Gurgaon, Noida, Faridabad</p>
-      </div>
-    </div>
-
-  </div>
-</section>
+<p class="eyebrow">Discover &amp; Book</p>
+    <h1>Find the <span>Perfect Vendor</span><br>for Your Event</h1>
+    <p>Hand-picked professionals across every service category — browse, compare, and book with ease.</p>
+  </header>
 
 
+  <!-- SECTIONS CONTAINER -->
+  <div id="sections-container"></div>
+
+  <script>
+    /* ─── DATA ──────────────────────────────────────────────────── */
+    const services = [
+      {
+        id: "photography",
+        title: "Photography",
+        subtitle: "Top Booked Photographers",
+        label: "PHOTOGRAPHY",
+        badge: "Trending",
+        image: "https://images.unsplash.com/photo-1519741497674-611481863552?w=560&q=80",
+        vendors: [
+          { name: "Lens & Light", sub: "Wedding · Portrait", price: "₹18,000", rating: "★★★★★", initials: "LL" },
+          { name: "Click Studio", sub: "Events · Corporate", price: "₹12,500", rating: "★★★★☆", initials: "CS" },
+          { name: "Frame Works", sub: "Fashion · Product", price: "₹9,000", rating: "★★★★★", initials: "FW" },
+          { name: "Golden Hour", sub: "Outdoor · Travel", price: "₹15,000", rating: "★★★★☆", initials: "GH" },
+          { name: "Pixel Pro", sub: "Corporate · Events", price: "₹8,500", rating: "★★★★★", initials: "PP" },
+          { name: "Shutter Co.", sub: "Wedding · Portrait", price: "₹21,000", rating: "★★★★★", initials: "SC" },
+          { name: "VisionCraft", sub: "Product · Fashion", price: "₹11,000", rating: "★★★★☆", initials: "VC" },
+        ]
+      },
+      {
+        id: "catering",
+        title: "Catering",
+        subtitle: "Most Opted Caterers",
+        label: "CATERING",
+        badge: "Popular",
+        image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=560&q=80",
+        vendors: [
+          { name: "Spice Route", sub: "Multi-cuisine", price: "₹650/plate", rating: "★★★★★", initials: "SR" },
+          { name: "Flavour Nest", sub: "Continental", price: "₹800/plate", rating: "★★★★☆", initials: "FN" },
+          { name: "Royal Feast", sub: "Indian · Mughal", price: "₹950/plate", rating: "★★★★★", initials: "RF" },
+          { name: "Taste Buds", sub: "Street · Fusion", price: "₹450/plate", rating: "★★★★☆", initials: "TB" },
+          { name: "Chef's Table", sub: "Fine Dining", price: "₹1,200/plate", rating: "★★★★★", initials: "CT" },
+          { name: "Zest Kitchen", sub: "Vegan · Healthy", price: "₹550/plate", rating: "★★★★★", initials: "ZK" },
+        ]
+      },
+      {
+        id: "decor",
+        title: "Decor & Florals",
+        subtitle: "Featured Decorators",
+        label: "DÉCOR",
+        badge: "New",
+        image: "https://images.unsplash.com/photo-1478146059778-26028b07d8af?w=560&q=80",
+        vendors: [
+          { name: "Bloom Studio", sub: "Floral · Bohemian", price: "₹35,000", rating: "★★★★★", initials: "BS" },
+          { name: "Eden Decor", sub: "Luxury · Weddings", price: "₹60,000", rating: "★★★★☆", initials: "ED" },
+          { name: "Petal & Pine", sub: "Garden · Outdoor", price: "₹28,000", rating: "★★★★★", initials: "PP" },
+          { name: "Luxe Drapes", sub: "Fabric · Canopy", price: "₹45,000", rating: "★★★★☆", initials: "LD" },
+          { name: "ColorWave", sub: "Balloons · Theme", price: "₹18,000", rating: "★★★★★", initials: "CW" },
+          { name: "The Arch Co.", sub: "Arch · Floral", price: "₹22,000", rating: "★★★★★", initials: "AC" },
+          { name: "Greenery Lab", sub: "Plants · Earthy", price: "₹30,000", rating: "★★★★☆", initials: "GL" },
+        ]
+      }
+    ];
+
+    /* ─── RENDER ────────────────────────────────────────────────── */
+    const container = document.getElementById('sections-container');
+
+    services.forEach(svc => {
+      const section = document.createElement('section');
+      section.className = 'service-section';
+      section.dataset.id = svc.id;
+
+      const cardsHTML = svc.vendors.map(v => `
+        <div class="vendor-card" onclick="handleBook('${svc.id}','${v.name}')">
+          <div class="vendor-avatar-placeholder">${v.initials}</div>
+          <div class="vendor-arrow">
+            <div class="arrow-line"><span></span><span></span><span></span></div>
+            <div class="arrow-head"></div>
+          </div>
+          <div class="vendor-name">${v.name}</div>
+          <div class="vendor-sub">${v.sub}</div>
+          <div class="vendor-price-label">Starting @</div>
+          <div class="vendor-price">${v.price}*</div>
+          <div class="vendor-rating">${v.rating}</div>
+          <button class="btn-book">Book Now</button>
+        </div>
+      `).join('');
+
+      section.innerHTML = `
+        <div class="service-image">
+          <img src="${svc.image}" alt="${svc.title}" loading="lazy"/>
+          <div class="label-overlay"><h2>${svc.label}</h2></div>
+          <div class="badge">${svc.badge}</div>
+        </div>
+        <div class="service-right">
+          <div class="section-title">${svc.subtitle}</div>
+          <div class="section-sub">Scroll to explore more vendors →</div>
+          <div class="scroll-track-wrap">
+            <div class="scroll-track" id="track-${svc.id}">${cardsHTML}</div>
+          </div>
+          <div class="scroll-arrows">
+            <button class="arrow-btn" onclick="scrollTrack('${svc.id}',-1)" title="Scroll left">&#8592;</button>
+            <button class="arrow-btn" onclick="scrollTrack('${svc.id}', 1)" title="Scroll right">&#8594;</button>
+          </div>
+        </div>
+      `;
+
+      container.appendChild(section);
+    });
+
+    /* ─── SCROLL FUNCTION ───────────────────────────────────────── */
+    function scrollTrack(id, dir) {
+      const track = document.getElementById('track-' + id);
+      track.scrollBy({ left: dir * 220, behavior: 'smooth' });
+    }
+
+    /* ─── BOOK HANDLER ──────────────────────────────────────────── */
+    function handleBook(service, vendor) {
+      // Replace with your real booking logic
+      const toast = document.createElement('div');
+      toast.textContent = `✓ Enquiry sent to ${vendor}!`;
+      Object.assign(toast.style, {
+        position: 'fixed', bottom: '32px', left: '50%', transform: 'translateX(-50%) translateY(16px)',
+        background: '#1a1208', color: '#e8b84b', padding: '12px 28px',
+        borderRadius: '100px', fontFamily: "'DM Sans',sans-serif", fontSize: '.9rem',
+        fontWeight: '600', boxShadow: '0 8px 32px rgba(0,0,0,.25)', zIndex: 9999,
+        opacity: 0, transition: 'opacity .3s, transform .3s'
+      });
+      document.body.appendChild(toast);
+      requestAnimationFrame(() => {
+        toast.style.opacity = 1; toast.style.transform = 'translateX(-50%) translateY(0)';
+      });
+      setTimeout(() => {
+        toast.style.opacity = 0;
+        setTimeout(() => toast.remove(), 400);
+      }, 2500);
+    }
+
+    /* ─── INTERSECTION OBSERVER (entrance animation) ───────────── */
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.service-section').forEach(s => observer.observe(s));
+  </script>
+
+</div>
 
 
-
-  
-    <!-- Footer -->
-    <footer class="hidden">
-      <div class="footer-col">
+  <!-- Footer -->
+  <footer>
+    <div class="footer-col">
         <h4 class="act"><i class="fa-solid fa-location-dot"></i> Address</h4>
         <p>
-          <b>CMR College</b><br />
-          Medchal District<br />
-          Pin-code: 501401<br />
-          Telangana, India
+            <b>CMR College</b><br>  
+            Medchal District<br>
+            Pin-code: 501401<br>
+            Telangana, India
         </p>
         <a href="https://maps.google.com" target="_blank" class="map-link">
-          Get Directions <i class="fa-solid fa-arrow-right"></i>
+            Get Directions <i class="fa-solid fa-arrow-right"></i>
         </a>
-      </div>
+    </div>
 
-      <div class="footer-col end">
+    <div class="footer-col end">
         <h4 class="act">Explore</h4>
         <ul class="footer-links">
-          <li>
-            <a href="./Without-login/Services/services_page.html"
-              >Our Services</a
-            >
-          </li>
-          <li>
-            <a href="./Without-login/Gallery/gallery_page.html"
-              >Event Gallery</a
-            >
-          </li>
-          <li><a href="./Without-login/About/about_page.html">About Us</a></li>
-          <li>
-            <a href="./Without-login/Contact/contact_page.html">Contact Us</a>
-          </li>
+            <li><a href="../Services/services_page.html">Our Services</a></li>
+            <li><a href="../Gallery/gallery_page.html">Event Gallery</a></li>
+            <li><a href="../About/about_page.html">About Us</a></li>
+            <li><a href="../Contact/contact_page.html">Contact Us</a></li>
         </ul>
-      </div>
+    </div>
 
-      <div class="footer-col end">
+    <div class="footer-col end">
         <h4 class="act">Contact</h4>
         <p><i class="fa-solid fa-phone"></i> 09343489432</p>
         <p><i class="fa-brands fa-whatsapp"></i> +91 9999999999</p>
         <p><i class="fa-solid fa-envelope"></i> info@eventnest.com</p>
-
+        
         <div class="legal-links">
-          <a href="#">Privacy Policy</a> | <a href="#">Terms</a>
+            <a href="#">Privacy Policy</a> | <a href="#">Terms</a>
         </div>
-      </div>
+    </div>
 
-      <div class="footer-col" id="last">
+    <div class="footer-col" id="last">
         <h4 class="act">Follow Us</h4>
         <div class="social-icons">
-          <a href="https://www.facebook.com"
-            ><i class="fa-brands fa-facebook-f"></i
-          ></a>
-          <a href="https://www.linkedin.com"
-            ><i class="fa-brands fa-linkedin-in"></i
-          ></a>
-          <a href="https://www.github.com"
-            ><i class="fa-brands fa-github"></i
-          ></a>
-          <a href="https://www.instagram.com"
-            ><i class="fa-brands fa-instagram"></i
-          ></a>
+            <a href="https://www.facebook.com"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.linkedin.com"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://github.com"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.instagram.com"><i class="fa-brands fa-instagram"></i></a>
         </div>
-
-        <p class="copyright">
-          ©2035 by Event Nest. <br />
-          Powered and secured by FireWall
-        </p>
-
+        
+        <p class="copyright">©2035 by Event Nest. <br> Powered and secured by FireWall</p>
+        
         <button id="down">
-          <a href="./event-nest/Signup/signup.html" id="no">BOOK NOW</a>
+            <a href="../Services/services_page.html" id="no">BOOK NOW</a>
         </button>
-      </div>
-    </footer>
-    </body>
+    </div>
+</footer>
 
   <script src="../JavaScript/wedding_logic.js"></script>
+</body>
 </html>
