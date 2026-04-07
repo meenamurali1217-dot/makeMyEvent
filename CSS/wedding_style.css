@@ -186,6 +186,8 @@ nav a:hover {
 
 .card-img-top {
   width: 100%;
+  height: 180px;
+  object-fit: cover;
   display: block;
 }
 
@@ -276,6 +278,8 @@ nav a:hover {
 
 .card img {
   width: 100%;
+  height: 180px;
+  object-fit: cover;
   border-radius: 10px;
 }
 
@@ -510,6 +514,25 @@ nav a:hover {
       display: block;
       border: 2.5px solid var(--gold-lt);
     }
+    .vendor-thumb {
+      width: 100%;
+      height: 110px;
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 12px;
+      background: #f7f2ea;
+    }
+    .vendor-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .4s ease;
+    }
+    .vendor-card:hover .vendor-thumb img {
+      transform: scale(1.04);
+    }
+
     .vendor-avatar-placeholder {
       width: 52px; height: 52px;
       border-radius: 50%;
