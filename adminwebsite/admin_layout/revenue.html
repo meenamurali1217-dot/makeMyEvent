@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Reports & Analytics | Admin Panel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../admin_CSS/revenue.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <header class="navbar">
+    
+    <!-- Header -->
+        <div class="logo">
+          make
+          <img
+            src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEidvekcxWaVkfJFq89IxgFYyrdwvk85jeyU-wZ1qDwYIyH3048fsmL_qB0su74UD_3Vk4Hz9rNBa0R2wh72H7rWTtHbdPZGxlXH5RKAe-NZx95eBnhkqeTkyZDyyw8mGRNyCIQ6nJUgyLNfRVpYY5BCtsWj1jjUa8H_T_th4s34RS1JjeBifNBnKuFh6Ww/s320/Screenshot%202026-03-27%20115604.png"
+            alt=""
+            class="image"
+          />
+          event
+        </div>
+    <div class="search-box">
+      <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="Search report ID or date...">
+    </div>
+
+    <nav class="desktop-nav">
+      <a href="../admin_dashboard/index.html" class="option" >Dashboard</a>
+      <a href="../vendormanagement_page/vendormanagement.html" class="option">Vendors</a>
+      <a href="../user_page/user.html" class="option">Users</a>
+      <a href="../booking_page/booking.html" class="option">booking</a>
+    </nav>
+    
+    <div class="auth">
+      <button class="register" style="background-color: #333;"><i class="fa-solid fa-shield-halved"></i> Admin Panel</button>
+    </div>
+  </header>
+
+  <main class="admin-container">
+      
+      <div class="admin-hero-enhanced">
+          <div class="hero-text">
+              <h1>Financial Intelligence</h1>
+              <p>Deep dive into platform performance, revenue streams, and user growth.</p>
+              <div class="hero-badges">
+                  <span><i class="fa-solid fa-calendar-days"></i> Fiscal Year: 2026-27</span>
+                  <span><i class="fa-solid fa-file-invoice"></i> Reports Generated: 1,204</span>
+              </div>
+          </div>
+          <div class="hero-visual">
+              <div class="date-filter">
+                  <input type="date" value="2026-01-01">
+                  <span>to</span>
+                  <input type="date" value="2026-12-31">
+              </div>
+              <button class="glass-btn primary"><i class="fa-solid fa-filter"></i> Apply Filter</button>
+          </div>
+      </div>
+
+      <section class="stats-row">
+          <div class="stat-card">
+              <div class="stat-icon green"><i class="fa-solid fa-money-bill-trend-up"></i></div>
+              <div class="stat-info">
+                  <h3>₹ 42.5L</h3>
+                  <p>Gross Revenue</p>
+                  <span class="trend up"><i class="fa-solid fa-arrow-up"></i> 15% YoY</span>
+              </div>
+          </div>
+          <div class="stat-card">
+              <div class="stat-icon blue"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+              <div class="stat-info">
+                  <h3>₹ 3.8L</h3>
+                  <p>Platform Commission</p>
+                  <span class="trend up">Net Profit</span>
+              </div>
+          </div>
+          <div class="stat-card">
+              <div class="stat-icon orange"><i class="fa-solid fa-receipt"></i></div>
+              <div class="stat-info">
+                  <h3>₹ 12.1L</h3>
+                  <p>Pending Payouts</p>
+                  <span class="trend down">Due in 3 days</span>
+              </div>
+          </div>
+          <div class="stat-card">
+              <div class="stat-icon purple"><i class="fa-solid fa-wallet"></i></div>
+              <div class="stat-info">
+                  <h3>₹ 85k</h3>
+                  <p>Refunds Processed</p>
+                  <span class="trend down">2% Return Rate</span>
+              </div>
+          </div>
+      </section>
+
+      <section class="dashboard-grid-layout">
+          
+          <div class="left-column">
+              <div class="card chart-card">
+                  <div class="card-header">
+                      <h2>Category Performance</h2>
+                      <button class="icon-btn-bordered"><i class="fa-solid fa-download"></i></button>
+                  </div>
+                  
+                  <div class="category-list">
+                      <div class="cat-item">
+                          <div class="cat-info">
+                              <span><i class="fa-solid fa-camera" style="color:#3b82f6"></i> Photography</span>
+                              <strong>45%</strong>
+                          </div>
+                          <div class="progress-bar">
+                              <div class="progress-fill blue" style="width: 45%;"></div>
+                          </div>
+                          <small>₹ 19.1L Revenue</small>
+                      </div>
+
+                      <div class="cat-item">
+                          <div class="cat-info">
+                              <span><i class="fa-solid fa-utensils" style="color:#f97316"></i> Catering</span>
+                              <strong>30%</strong>
+                          </div>
+                          <div class="progress-bar">
+                              <div class="progress-fill orange" style="width: 30%;"></div>
+                          </div>
+                          <small>₹ 12.7L Revenue</small>
+                      </div>
+
+                      <div class="cat-item">
+                          <div class="cat-info">
+                              <span><i class="fa-solid fa-wand-magic-sparkles" style="color:#a855f7"></i> Decoration</span>
+                              <strong>20%</strong>
+                          </div>
+                          <div class="progress-bar">
+                              <div class="progress-fill purple" style="width: 20%;"></div>
+                          </div>
+                          <small>₹ 8.5L Revenue</small>
+                      </div>
+
+                      <div class="cat-item">
+                          <div class="cat-info">
+                              <span><i class="fa-solid fa-music" style="color:#10b981"></i> Entertainment</span>
+                              <strong>5%</strong>
+                          </div>
+                          <div class="progress-bar">
+                              <div class="progress-fill green" style="width: 5%;"></div>
+                          </div>
+                          <small>₹ 2.2L Revenue</small>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <div class="right-column">
+              
+              <div class="card">
+                  <div class="card-header">
+                      <h2>Export Reports</h2>
+                  </div>
+                  <div class="report-list">
+                      <div class="report-item">
+                          <div class="rep-icon pdf"><i class="fa-solid fa-file-pdf"></i></div>
+                          <div class="rep-details">
+                              <h4>Monthly Sales Report</h4>
+                              <p>Dec 2025 • 2.4 MB</p>
+                          </div>
+                          <button class="download-btn" onclick="downloadReport(this)"><i class="fa-solid fa-download"></i></button>
+                      </div>
+
+                      <div class="report-item">
+                          <div class="rep-icon csv"><i class="fa-solid fa-file-csv"></i></div>
+                          <div class="rep-details">
+                              <h4>User Growth Data</h4>
+                              <p>Year 2025 • 850 KB</p>
+                          </div>
+                          <button class="download-btn" onclick="downloadReport(this)"><i class="fa-solid fa-download"></i></button>
+                      </div>
+
+                      <div class="report-item">
+                          <div class="rep-icon excel"><i class="fa-solid fa-file-excel"></i></div>
+                          <div class="rep-details">
+                              <h4>Vendor Payout Sheet</h4>
+                              <p>Q4 2025 • 1.2 MB</p>
+                          </div>
+                          <button class="download-btn" onclick="downloadReport(this)"><i class="fa-solid fa-download"></i></button>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="card alert-card-box">
+                  <h3><i class="fa-solid fa-bell"></i> Insights</h3>
+                  <ul class="insight-list">
+                      <li>Spending on <strong>Decoration</strong> has increased by 15% this month.</li>
+                      <li><strong>New Year's Eve</strong> bookings generated the highest daily revenue (₹1.2L).</li>
+                      <li>3 Vendors have crossed the <strong>₹10L</strong> payout milestone.</li>
+                  </ul>
+              </div>
+
+          </div>
+      </section>
+
+      <section class="vendor-table-section">
+          <div class="card table-card full-width-card">
+              <div class="card-header">
+                  <h2>Recent Transactions Log</h2>
+                  <button class="view-all">View Full Log</button>
+              </div>
+              <div class="table-responsive">
+                  <table>
+                      <thead>
+                          <tr>
+                              <th>Transaction ID</th>
+                              <th>Date & Time</th>
+                              <th>Payer (User)</th>
+                              <th>Payee (Vendor)</th>
+                              <th>Type</th>
+                              <th>Amount</th>
+                              <th>Status</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr>
+                              <td>TXN-884201</td>
+                              <td>Jan 14, 10:30 AM</td>
+                              <td>Priya Singh</td>
+                              <td>Elite Decorators</td>
+                              <td>Booking Advance</td>
+                              <td>₹ 25,000</td>
+                              <td><span class="status completed">Success</span></td>
+                          </tr>
+                          <tr>
+                              <td>TXN-884202</td>
+                              <td>Jan 14, 11:15 AM</td>
+                              <td>Rahul Kumar</td>
+                              <td>Lens Magic</td>
+                              <td>Final Settlement</td>
+                              <td>₹ 40,000</td>
+                              <td><span class="status completed">Success</span></td>
+                          </tr>
+                          <tr>
+                              <td>TXN-884203</td>
+                              <td>Jan 13, 04:45 PM</td>
+                              <td>Amit Verma</td>
+                              <td>Spice Route</td>
+                              <td>Refund</td>
+                              <td>- ₹ 5,000</td>
+                              <td><span class="status pending">Processing</span></td>
+                          </tr>
+                          <tr>
+                              <td>TXN-884204</td>
+                              <td>Jan 13, 02:00 PM</td>
+                              <td>Sneha Roy</td>
+                              <td>DJ Beats</td>
+                              <td>Booking Advance</td>
+                              <td>₹ 10,000</td>
+                              <td><span class="status canceled">Failed</span></td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+      </section>
+
+  </main>
+
+  <footer>
+        <div class="footer-col">
+            CMR college <br>  
+            Kandlakoya<br>
+            Medchel Telangana
+        </div>
+        <div class="footer-col end">
+            Tel: 08965436 <br>
+            Ph.no:91 8976564390<br>
+            info@eventnest.com
+        </div>
+        <div class="footer-col end">
+            ©2035 by EventNest. <br>
+            Powered and secured by FireWall
+        </div>
+        <div class="footer-col" id="last">
+            <div class="social-icons">
+                <a href="https://www.facebook.com"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.linkedin.com"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://www.github.com"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.instagram.com"><i class="fa-brands fa-instagram"></i></a>
+            </div> 
+            <br>
+            <button id="down"><a href="../booking_page/booking.html" id="no"</a>Bookings</button>
+        </div>
+    </footer>
+
+  <script src="../admin_JS/revenue.js"></script>
+</body>
+</html>

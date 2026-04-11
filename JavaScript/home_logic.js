@@ -1,3 +1,4 @@
+// user menu and dropdown logic
 function openForm() {
     document.getElementById("modal").style.display = "flex";
     document.body.style.overflow = "hidden"; // prevent scroll
@@ -201,4 +202,50 @@ if(!document.querySelector('style[data-vendor-styles]')) {
         }
     `;
     document.head.appendChild(style);
+}
+
+
+// --------------user menu and dropdown logic--------------//
+
+function toggleDropdown(id) {
+  closeAll();
+  let el = document.getElementById(id);
+  el.style.display = el.style.display === "block" ? "none" : "block";
+}
+
+function toggleUserMenu() {
+  closeAll();
+  let menu = document.getElementById("userDropdown");
+  menu.style.display = menu.style.display === "block" ? "none" : "block";
+}
+
+function selectOption(el) {
+  let btn = el.parentElement.previousElementSibling;
+  btn.innerText = el.innerText + " ⌄";
+  el.parentElement.style.display = "none";
+}
+
+function logout() {
+  const userConfirmed = confirm("Are you sure you want to log out?");
+  if (userConfirmed) {
+    sessionStorage.removeItem('currentUser');
+    alert("You have successfully logged out!");
+    window.location.href = "../index.html";
+  }
+}
+
+function changePassword() {
+  alert("Change Password feature coming soon!\n\nYou will be able to change your password by:\n1. Verifying your current password\n2. Setting a new password\n3. Confirming the new password");
+}
+
+/* Close all dropdowns */
+function closeAll() {
+  document.querySelectorAll(".dropdown-content, .user-dropdown")
+    .forEach(d => d.style.display = "none");
+}
+
+window.onclick = function(e) {
+  if (!e.target.closest('.dropdown') && !e.target.closest('.user-menu')) {
+    closeAll();
+  }
 }

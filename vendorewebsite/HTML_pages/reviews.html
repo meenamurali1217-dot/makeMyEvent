@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Customer Reviews | Vendor Panel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../CSS_pages/reviews.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <button class="menu-btn" onclick="openSidebar()">☰</button>
+    <div id="overlay" onclick="closeSidebar()"></div>
+
+    <div id="sidebar">
+      <div class="sidebar-header">
+        <div class="user-info">
+          <div class="user-icon" style="background: #27ae60; color: white;">
+            <i class="fa-solid fa-store"></i>
+          </div>
+          <div class="user-text">
+            <strong>Elite Decorators</strong> <br>
+            <span>Verified Vendor</span>
+          </div>
+        </div>
+        <span class="close-btn" onclick="closeSidebar()">✖</span>
+      </div>
+
+      <div class="sidebar-content">
+        <h4>Business Center</h4>
+        <a href="../home_page/index.html"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+        <a href="../services_page/services.html"><i class="fa-solid fa-list"></i> My Services</a>
+        <a href="../booking_page/booking.html"><i class="fa-solid fa-calendar-check"></i> Bookings <span class="badge warning" style="margin-left:auto;">3</span></a>
+        <a href="../messages_page/messages.html"><i class="fa-solid fa-message"></i> Messages</a>
+
+        <h4>Finance & Growth</h4>
+        <a href="../earnings_page/earnings.html"><i class="fa-solid fa-wallet"></i> Earnings & Payouts</a>
+        <a href="./reviews.html" class="active-link"><i class="fa-solid fa-star"></i> Reviews</a>
+        <h4>Account</h4>
+        <a href="../profilesettings_page/profilesettings.html"><i class="fa-solid fa-gear"></i> Profile Settings</a>
+        <a href="../../event-nest/Signup/signup.html"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+      </div>
+    </div>
+
+    <div class="logo">
+        <img src="https://eventnestcarmel.com/wp-content/uploads/2025/05/logo-black-1536x648.png" alt="Logo" width="150px">
+    </div>
+
+    <div class="search-box">
+      <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="Search reviews...">
+    </div>
+
+    <nav class="desktop-nav">
+      <a href="../home_page/index.html" class="option" >Dashboard</a>
+      <a href="../services_page/services.html" class="option">My Services</a>
+      <a href="../earnings_page/earnings.html" class="option">Earnings</a>
+      <a href="../profile_page/profile.html" class="option">Profile</a>
+    </nav>
+    
+    <div class="auth">
+      <button class="register" style="background-color: #333;"><i class="fa-solid fa-briefcase"></i> Vendor Portal</button>
+    </div>
+  </header>
+
+  <main class="admin-container">
+      
+      <div class="admin-hero-enhanced">
+          <div class="hero-text">
+              <h1>Client Feedback & Ratings</h1>
+              <p>See what your customers are saying about your services.</p>
+              <div class="hero-badges">
+                  <span><i class="fa-solid fa-star"></i> Overall Rating: 4.8/5</span>
+                  <span><i class="fa-solid fa-comment-dots"></i> Total Reviews: 124</span>
+              </div>
+          </div>
+          <div class="hero-visual">
+              <button class="glass-btn primary"><i class="fa-solid fa-share-nodes"></i> Share Best Reviews</button>
+          </div>
+      </div>
+
+      <section class="stats-row">
+          <div class="stat-card">
+              <div class="stat-icon green"><i class="fa-solid fa-face-smile-beam"></i></div>
+              <div class="stat-info">
+                  <h3>110</h3>
+                  <p>Positive (4-5 Star)</p>
+              </div>
+          </div>
+          <div class="stat-card">
+              <div class="stat-icon orange"><i class="fa-solid fa-face-meh"></i></div>
+              <div class="stat-info">
+                  <h3>10</h3>
+                  <p>Neutral (3 Star)</p>
+              </div>
+          </div>
+          <div class="stat-card">
+              <div class="stat-icon blue"><i class="fa-solid fa-image"></i></div>
+              <div class="stat-info">
+                  <h3>85</h3>
+                  <p>Reviews with Photos</p>
+              </div>
+          </div>
+          <div class="stat-card">
+              <div class="stat-icon purple"><i class="fa-solid fa-reply"></i></div>
+              <div class="stat-info">
+                  <h3>100%</h3>
+                  <p>Response Rate</p>
+              </div>
+          </div>
+      </section>
+
+      <section class="reviews-wrapper">
+          
+          <div class="reviews-header">
+              <h2>Recent Reviews</h2>
+              <div class="review-filters">
+                  <button class="filter-chip active" onclick="filterReviews('all')">All</button>
+                  <button class="filter-chip" onclick="filterReviews('new')">New</button>
+                  <button class="filter-chip" onclick="filterReviews('5star')">5 Stars</button>
+                  <button class="filter-chip" onclick="filterReviews('photos')">With Photos</button>
+              </div>
+          </div>
+
+          <div class="review-grid" id="reviewGrid">
+              
+              <div class="card review-card new-review">
+                  <div class="review-badge">New</div>
+                  <div class="reviewer-header">
+                      <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Customer">
+                      <div>
+                          <h4>Sneha Roy</h4>
+                          <span class="review-date">2 hours ago</span>
+                      </div>
+                      <div class="stars">
+                          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                      </div>
+                  </div>
+                  
+                  <div class="review-body">
+                      <p>"Absolutely stunning decor for my Sangeet! The team was very professional and the lighting setup was exactly what I imagined. Highly recommended!"</p>
+                  </div>
+
+                  <div class="liked-box">
+                      <strong><i class="fa-solid fa-heart"></i> Best things they liked:</strong>
+                      <div class="tags-row">
+                          <span class="liked-tag">Theme Accuracy</span>
+                          <span class="liked-tag">Punctuality</span>
+                          <span class="liked-tag">Lighting</span>
+                      </div>
+                  </div>
+
+                  <div class="review-images">
+                      <img src="https://www.cateringbyrodriguez.com/wp-content/uploads/2016/08/corporate_catering7.jpg" onclick="openImage(this)">
+                      <img src="https://cdn0.weddingwire.in/vendor/5895/3_2/960/jpg/wedding-dj-ds-d-j-sound-service-by-naresh-saini-dj-setup-28_15_365895-161917785311956.jpeg" onclick="openImage(this)">
+                  </div>
+
+                  <div class="review-actions">
+                      <button class="action-btn outline" onclick="toggleReply(this)"><i class="fa-solid fa-reply"></i> Reply</button>
+                      <button class="action-btn text-only">Show on Profile</button>
+                  </div>
+                  
+                  <div class="reply-box hidden">
+                      <textarea placeholder="Write a response..."></textarea>
+                      <button class="send-reply-btn">Post</button>
+                  </div>
+              </div>
+
+              <div class="card review-card">
+                  <div class="reviewer-header">
+                      <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Customer">
+                      <div>
+                          <h4>Amit Verma</h4>
+                          <span class="review-date">2 days ago</span>
+                      </div>
+                      <div class="stars">
+                          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+                      </div>
+                  </div>
+                  
+                  <div class="review-body">
+                      <p>"The floral arrangements were fresh and beautiful. However, the setup took a bit longer than expected. Overall a good experience."</p>
+                  </div>
+
+                  <div class="liked-box">
+                      <strong><i class="fa-solid fa-heart"></i> Best things they liked:</strong>
+                      <div class="tags-row">
+                          <span class="liked-tag">Fresh Flowers</span>
+                          <span class="liked-tag">Design</span>
+                      </div>
+                  </div>
+
+                  <div class="review-actions">
+                      <div class="vendor-reply">
+                          <strong>Your Reply:</strong> "Thank you Amit! We apologize for the delay and will ensure faster setup next time."
+                      </div>
+                  </div>
+              </div>
+
+              <div class="card review-card">
+                  <div class="reviewer-header">
+                      <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Customer">
+                      <div>
+                          <h4>Priya Singh</h4>
+                          <span class="review-date">1 week ago</span>
+                      </div>
+                      <div class="stars">
+                          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                      </div>
+                  </div>
+                  
+                  <div class="review-body">
+                      <p>"Best decision to hire Elite Decorators for my wedding. The mandap looked like a dream. Thank you so much!"</p>
+                  </div>
+
+                  <div class="liked-box">
+                      <strong><i class="fa-solid fa-heart"></i> Best things they liked:</strong>
+                      <div class="tags-row">
+                          <span class="liked-tag">Mandap Design</span>
+                          <span class="liked-tag">Professionalism</span>
+                          <span class="liked-tag">Value for Money</span>
+                      </div>
+                  </div>
+
+                  <div class="review-images">
+                      <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=300&auto=format&fit=crop" onclick="openImage(this)">
+                  </div>
+
+                  <div class="review-actions">
+                      <button class="action-btn outline" onclick="toggleReply(this)"><i class="fa-solid fa-reply"></i> Reply</button>
+                      <button class="action-btn text-only text-green"><i class="fa-solid fa-check"></i> Featured on Profile</button>
+                  </div>
+                  
+                  <div class="reply-box hidden">
+                      <textarea placeholder="Write a response..."></textarea>
+                      <button class="send-reply-btn">Post</button>
+                  </div>
+              </div>
+
+          </div>
+      </section>
+
+  </main>
+
+  <footer>
+        <div class="footer-col">
+            CMR college <br>  
+            Kandlakoya<br>
+            Medchel Telangana
+        </div>
+        <div class="footer-col end">
+            Tel: 08965436 <br>
+            Ph.no:91 8976564390<br>
+            info@eventnest.com
+        </div>
+        <div class="footer-col end">
+            ©2035 by EventNest. <br>
+            Powered and secured by FireWall
+        </div>
+        <div class="footer-col" id="last">
+            <div class="social-icons">
+                <a href="https://www.facebook.com"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.linkedin.com"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.instagram.com"><i class="fa-brands fa-instagram"></i></a>
+            </div> 
+            <br>
+            <button id="down"><a href="../booking_page/booking.html" id="no">Bookings</a></button>
+        </div>
+    </footer>
+
+  <script src="../JS_pages/reviews.js"></script>
+</body>
+</html>

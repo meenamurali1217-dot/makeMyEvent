@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vendor Profile | Event Nest</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../CSS_pages/profile.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <button class="menu-btn" onclick="openSidebar()">☰</button>
+    <div id="overlay" onclick="closeSidebar()"></div>
+
+    <div id="sidebar">
+      <div class="sidebar-header">
+        <div class="user-info">
+          <div class="user-icon" style="background: #27ae60; color: white;">
+            <i class="fa-solid fa-store"></i>
+          </div>
+          <div class="user-text">
+            <strong>Elite Decorators</strong> <br>
+            <span>Verified Vendor</span>
+          </div>
+        </div>
+        <span class="close-btn" onclick="closeSidebar()">✖</span>
+      </div>
+
+      <div class="sidebar-content">
+        <h4>Business Center</h4>
+        <a href="../home_page/index.html"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+        <a href="../services_page/services.html"><i class="fa-solid fa-list"></i> My Services</a>
+        <a href="../booking_page/booking.html"><i class="fa-solid fa-calendar-check"></i> Bookings <span class="badge warning" style="margin-left:auto;">3</span></a>
+        <a href="../messages_page/messages.html"><i class="fa-solid fa-message"></i> Messages</a>
+
+        <h4>Finance & Growth</h4>
+        <a href="../earnings_page/earnings.html"><i class="fa-solid fa-wallet"></i> Earnings & Payouts</a>
+        <a href="../Reviews_page/reviews.html"><i class="fa-solid fa-star"></i> Reviews</a>
+        <h4>Account</h4>
+        <a href="../profilesettings_page/profilesettings.html"><i class="fa-solid fa-gear"></i> Profile Settings</a>
+        <a href="../../event-nest/Signup/signup.html"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+      </div>
+    </div>
+    
+    <div class="logo">
+        <img src="https://eventnestcarmel.com/wp-content/uploads/2025/05/logo-black-1536x648.png" alt="Logo" width="150px">
+    </div>
+
+    <div class="search-box">
+      <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="Search...">
+    </div>
+
+    <nav class="desktop-nav">
+      <a href="../home_page/index.html" class="option" >Dashboard</a>
+      <a href="../services_page/services.html" class="option">My Services</a>
+      <a href="../earnings_page/earnings.html" class="option">Earnings</a>
+      <a href="./profile_page/profile.html" class="option" style="color:#2196f3;">Profile</a>
+    </nav>
+    
+    <div class="auth">
+      <button class="register" style="background-color: #333;"><i class="fa-solid fa-briefcase"></i> Vendor Portal</button>
+    </div>
+  </header>
+
+  <main class="admin-container">
+      
+      <div class="profile-header-wrapper">
+          <div class="cover-photo-container">
+              <img src="https://img.freepik.com/premium-photo/wedding-beach-with-sunset-background_853645-878.jpg?w=740" alt="Cover Photo" class="cover-img">
+              <button class="edit-cover-btn"><i class="fa-solid fa-camera"></i> Edit Cover</button>
+          </div>
+
+          <div class="profile-info-bar">
+              <div class="profile-left-info">
+                  <div class="profile-pic-wrapper">
+                      <img src="https://st.focusedcollection.com/16372974/i/1800/focused_211235948-stock-photo-front-view-portrait-man-casual.jpg" alt="Vendor Logo">
+                      <div class="edit-pic-overlay"><i class="fa-solid fa-camera"></i></div>
+                  </div>
+                  <div class="profile-text">
+                      <div class="name-row">
+                          <h1>Elite Decorators</h1>
+                          <i class="fa-solid fa-circle-check" style="color: #3b82f6;" title="Verified Vendor"></i>
+                      </div>
+                      <p class="location"><i class="fa-solid fa-location-dot"></i> Mumbai, Maharashtra • Member since 2021</p>
+                  </div>
+              </div>
+              
+              <div class="profile-actions">
+                  <button class="glass-btn primary" onclick="toggleEditMode()"><i class="fa-solid fa-pen"></i> Edit Profile</button>
+                  <button class="glass-btn"><i class="fa-solid fa-share-nodes"></i> Share</button>
+              </div>
+          </div>
+      </div>
+
+      <div class="profile-layout-grid">
+          
+          <div class="col-left">
+              
+              <div class="card info-card">
+                  <div class="card-header">
+                      <h3>About Business</h3>
+                  </div>
+                  <div class="card-body editable-area" contenteditable="false">
+                      <p>We specialize in turning venues into dreamscapes. From grand wedding stages to intimate floral setups, Elite Decorators brings 5 years of experience to your special day.</p>
+                      <ul class="highlights">
+                          <li><i class="fa-solid fa-check-circle"></i> 500+ Events Completed</li>
+                          <li><i class="fa-solid fa-check-circle"></i> Theme Specialists</li>
+                          <li><i class="fa-solid fa-check-circle"></i> Premium Flowers</li>
+                      </ul>
+                  </div>
+              </div>
+
+              <div class="card info-card">
+                  <div class="card-header">
+                      <h3>Contact Info</h3>
+                  </div>
+                  <div class="contact-list">
+                      <div class="c-item">
+                          <i class="fa-solid fa-phone"></i>
+                          <div>
+                              <small>Phone</small>
+                              <span>+91 98765 43210</span>
+                          </div>
+                      </div>
+                      <div class="c-item">
+                          <i class="fa-solid fa-envelope"></i>
+                          <div>
+                              <small>Email</small>
+                              <span>contact@elitedecor.com</span>
+                          </div>
+                      </div>
+                      <div class="c-item">
+                          <i class="fa-solid fa-globe"></i>
+                          <div>
+                              <small>Website</small>
+                              <a href="#">www.elitedecor.com</a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="card info-card">
+                  <div class="card-header">
+                      <h3>Social Media</h3>
+                  </div>
+                  <div class="social-links">
+                      <a href="https://www.instagram.com" class="s-icon insta"><i class="fa-brands fa-instagram"></i></a>
+                      <a href="https://www.facebook.com" class="s-icon fb"><i class="fa-brands fa-facebook"></i></a>
+                      <a href="https://www.twitter.com" class="s-icon tw"><i class="fa-brands fa-twitter"></i></a>
+                      <a href="https://www.youtube.com" class="s-icon yt"><i class="fa-brands fa-youtube"></i></a>
+                  </div>
+              </div>
+
+          </div>
+
+          <div class="col-right">
+              
+              <div class="mini-stats-row">
+                  <div class="m-stat">
+                      <strong>4.9</strong>
+                      <span>Rating</span>
+                  </div>
+                  <div class="m-stat">
+                      <strong>124</strong>
+                      <span>Reviews</span>
+                  </div>
+                  <div class="m-stat">
+                      <strong>15</strong>
+                      <span>Active Jobs</span>
+                  </div>
+              </div>
+
+              <div class="card gallery-card">
+                  <div class="card-header">
+                      <h3>Portfolio Gallery</h3>
+                      <input type="file" id="gallery-upload" accept="image/*" style="display: none;" onchange="handleAddPhoto(this)">
+                      <button class="upload-btn" onclick="document.getElementById('gallery-upload').click()">
+                          <i class="fa-solid fa-cloud-arrow-up"></i> Upload
+                      </button>
+                  </div>
+                  
+                  <div class="gallery-grid" id="gallery-grid">
+                      <div class="gallery-item">
+                          <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070&auto=format&fit=crop" alt="Decor 1">
+                      </div>
+                      
+                      <div class="gallery-item">
+                          <img src="https://images.unsplash.com/photo-1530023367847-a683933f4172?q=80&w=1974&auto=format&fit=crop" alt="Decor 2 - Table Setting">
+                      </div>
+                      
+                      <div class="gallery-item">
+                          <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=2070&auto=format&fit=crop" alt="Decor 3">
+                      </div>
+                      
+                      <div class="gallery-item">
+                          <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070&auto=format&fit=crop"alt="Decor 4 - Outdoor Lights">
+                      </div>
+
+                      <div class="gallery-item add-new" onclick="document.getElementById('gallery-upload').click()">
+                          <i class="fa-solid fa-plus"></i>
+                          <span>Add Photo</span>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="card services-card">
+                  <div class="card-header">
+                      <h3>Services & Pricing</h3>
+                      <button class="icon-btn-bordered"><i class="fa-solid fa-pen-to-square"></i></button>
+                  </div>
+                  <div class="table-responsive">
+                      <table class="simple-table">
+                          <thead>
+                              <tr>
+                                  <th>Service Name</th>
+                                  <th>Description</th>
+                                  <th>Price Range</th>
+                                  <th>Status</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td>Wedding Stage</td>
+                                  <td>Full floral setup with lights</td>
+                                  <td>₹ 50k - ₹ 2L</td>
+                                  <td><span class="status-badge active">Active</span></td>
+                              </tr>
+                              <tr>
+                                  <td>Entrance Arch</td>
+                                  <td>Traditional flower arch</td>
+                                  <td>₹ 15k - ₹ 35k</td>
+                                  <td><span class="status-badge active">Active</span></td>
+                              </tr>
+                              <tr>
+                                  <td>Haldi Setup</td>
+                                  <td>Yellow theme marigold setup</td>
+                                  <td>₹ 25k - ₹ 50k</td>
+                                  <td><span class="status-badge inactive">Hidden</span></td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+
+          </div>
+
+      </div>
+
+  </main>
+
+  <footer>
+        <div class="footer-col">
+            CMR college <br>  
+            Kandlakoya<br>
+            Medchel Telangana
+        </div>
+        <div class="footer-col end">
+            Tel: 08965436 <br>
+            Ph.no:91 8976564390<br>
+            info@eventnest.com
+        </div>
+        <div class="footer-col end">
+            ©2035 by EventNest. <br>
+            Powered and secured by FireWall
+        </div>
+        <div class="footer-col" id="last">
+            <div class="social-icons">
+                <a href="https://www.facebook.com"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.linkedin.com"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://www.github.com"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.instagram.com"><i class="fa-brands fa-instagram"></i></a>
+            </div> 
+            <br>
+            <button id="down"><a href="../booking_page/booking.html" id="no">Bookings</a></button>
+        </div>
+    </footer>
+
+  <script src="../JS_pages/profile.js"></script>
+</body>
+</html>

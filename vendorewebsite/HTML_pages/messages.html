@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Messages | Vendor Panel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../CSS_pages/messages.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <button class="menu-btn" onclick="openSidebar()">☰</button>
+    <div id="overlay" onclick="closeSidebar()"></div>
+
+    <div id="sidebar">
+      <div class="sidebar-header">
+        <div class="user-info">
+          <div class="user-icon" style="background: #27ae60; color: white;">
+            <i class="fa-solid fa-store"></i>
+          </div>
+          <div class="user-text">
+            <strong>Elite Decorators</strong> <br>
+            <span>Verified Vendor</span>
+          </div>
+        </div>
+        <span class="close-btn" onclick="closeSidebar()">✖</span>
+      </div>
+
+      <div class="sidebar-content">
+        <h4>Business Center</h4>
+        <a href="../home_page/index.html"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+        <a href="../services_page/services.html"><i class="fa-solid fa-list"></i> My Services</a>
+        <a href="../booking_page/booking.html"><i class="fa-solid fa-calendar-check"></i> Bookings <span class="badge warning" style="margin-left:auto;">3</span></a>
+        <a href="../messages_page/messages.html" class="active-link"><i class="fa-solid fa-message"></i> Messages</a>
+
+        <h4>Finance & Growth</h4>
+        <a href="../earnings_page/earnings.html"><i class="fa-solid fa-wallet"></i> Earnings & Payouts</a>
+        <a href="../Reviews_page/reviews.html"><i class="fa-solid fa-star"></i> Reviews</a>
+        <h4>Account</h4>
+        <a href="../profilesettings_page/profilesettings.html"><i class="fa-solid fa-gear"></i> Profile Settings</a>
+        <a href="../logout_page/logout.html"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+      </div>
+    </div>
+    
+
+    <div class="logo">
+        <img src="https://eventnestcarmel.com/wp-content/uploads/2025/05/logo-black-1536x648.png" alt="Logo" width="150px">
+    </div>
+
+    <div class="search-box">
+      <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="Search messages...">
+    </div>
+
+    <nav class="desktop-nav">
+      <a href="../home_page/index.html" class="option" >Dashboard</a>
+      <a href="../services_page/services.html" class="option">My Services</a>
+      <a href="../earnings_page/earnings.html" class="option">Earnings</a>
+      <a href="../profile_page/profile.html" class="option">Profile</a>
+    </nav>
+    
+    <div class="auth">
+      <button class="register" style="background-color: #333;"><i class="fa-solid fa-briefcase"></i> Vendor Portal</button>
+    </div>
+  </header>
+
+  <main class="admin-container">
+      
+      <div class="admin-hero-enhanced">
+          <div class="hero-text">
+              <h1>Communication Hub</h1>
+              <p>Connect with your clients and get support from the admin team.</p>
+          </div>
+          <div class="hero-visual">
+              <button class="glass-btn primary"><i class="fa-solid fa-pen-to-square"></i> Compose New</button>
+          </div>
+      </div>
+
+      <div class="chat-wrapper">
+          
+          <div class="chat-list-pane">
+              <div class="chat-search">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                  <input type="text" placeholder="Search chats...">
+              </div>
+              
+              <div class="chat-tabs">
+                  <button class="tab-btn active">All</button>
+                  <button class="tab-btn">Unread</button>
+                  <button class="tab-btn">Admin</button>
+              </div>
+
+              <div class="contacts-scroll">
+                  
+                  <div class="contact-item" onclick="openChat(this, 'Admin Support', 'admin')">
+                      <div class="avatar-wrap">
+                          <img src="https://cdn-icons-png.flaticon.com/512/2304/2304226.png" alt="Admin">
+                          <span class="status-dot online"></span>
+                      </div>
+                      <div class="contact-info">
+                          <div class="c-top">
+                              <h4>Admin Support <i class="fa-solid fa-shield-halved" style="color:#2196f3; font-size:12px;"></i></h4>
+                              <small>10:00 AM</small>
+                          </div>
+                          <p>Please update your bank details for...</p>
+                      </div>
+                  </div>
+
+                  <div class="contact-item active" onclick="openChat(this, 'Priya Singh', 'customer')">
+                      <div class="avatar-wrap">
+                          <img src="https://randomuser.me/api/portraits/women/12.jpg" alt="User">
+                          <span class="status-dot online"></span>
+                      </div>
+                      <div class="contact-info">
+                          <div class="c-top">
+                              <h4>Priya Singh</h4>
+                              <small>Just now</small>
+                          </div>
+                          <p class="unread-text">Is the floral arch customizable?</p>
+                          <span class="unread-badge">1</span>
+                      </div>
+                  </div>
+
+                  <div class="contact-item" onclick="openChat(this, 'Rahul Kumar', 'customer')">
+                      <div class="avatar-wrap">
+                          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User">
+                          <span class="status-dot offline"></span>
+                      </div>
+                      <div class="contact-info">
+                          <div class="c-top">
+                              <h4>Rahul Kumar</h4>
+                              <small>Yesterday</small>
+                          </div>
+                          <p>Thanks for the quick response!</p>
+                      </div>
+                  </div>
+
+                  <div class="contact-item" onclick="openChat(this, 'Sneha Roy', 'customer')">
+                      <div class="avatar-wrap">
+                          <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User">
+                          <span class="status-dot offline"></span>
+                      </div>
+                      <div class="contact-info">
+                          <div class="c-top">
+                              <h4>Sneha Roy</h4>
+                              <small>Jan 12</small>
+                          </div>
+                          <p>We are looking for a yellow theme...</p>
+                      </div>
+                  </div>
+
+              </div>
+          </div>
+
+          <div class="chat-window-pane">
+              
+              <div class="chat-header">
+                  <div class="chat-partner-info">
+                      <img src="https://randomuser.me/api/portraits/women/12.jpg" id="chatHeaderImg" alt="Active User">
+                      <div>
+                          <h3 id="chatHeaderName">Priya Singh</h3>
+                          <span id="chatHeaderStatus" class="status-text online">Online</span>
+                      </div>
+                  </div>
+                  <div class="chat-actions">
+                      <button class="icon-btn-plain"><i class="fa-solid fa-phone"></i></button>
+                      <button class="icon-btn-plain"><i class="fa-solid fa-video"></i></button>
+                      <button class="icon-btn-plain"><i class="fa-solid fa-circle-info"></i></button>
+                  </div>
+              </div>
+
+              <div class="chat-messages" id="chatMessages">
+                  
+                  <div class="message-bubble received">
+                      <p>Hi, I saw your wedding stage portfolio. It looks amazing!</p>
+                      <span class="time">10:30 AM</span>
+                  </div>
+
+                  <div class="message-bubble sent">
+                      <p>Hello Priya! Thank you so much. Are you planning an event soon?</p>
+                      <span class="time">10:32 AM <i class="fa-solid fa-check-double"></i></span>
+                  </div>
+
+                  <div class="message-bubble received">
+                      <p>Yes, for my wedding in February. Is the floral arch customizable?</p>
+                      <span class="time">10:35 AM</span>
+                  </div>
+
+                  </div>
+
+              <div class="chat-input-area">
+                  <button class="attach-btn"><i class="fa-solid fa-paperclip"></i></button>
+                  <input type="text" id="messageInput" placeholder="Type a message..." onkeypress="handleEnter(event)">
+                  <button class="send-btn" onclick="sendMessage()"><i class="fa-solid fa-paper-plane"></i></button>
+              </div>
+
+          </div>
+
+      </div>
+
+  </main>
+
+  <footer>
+        <div class="footer-col">
+            CMR college <br>  
+            Kandlakoya<br>
+            Medchel Telangana
+        </div>
+        <div class="footer-col end">
+            Tel: 08965436 <br>
+            Ph.no:91 8976564390<br>
+            info@eventnest.com
+        </div>
+        <div class="footer-col end">
+            ©2035 by EventNest. <br>
+            Powered and secured by FireWall
+        </div>
+        <div class="footer-col" id="last">
+            <div class="social-icons">
+                <a href="https://www.facebook.com"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.linkedin.com"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.instagram.com"><i class="fa-brands fa-instagram"></i></a>
+            </div> 
+            <br>
+            <button id="down"><a href="../booking_page/booking.html" id="no">Bookings</a></button>
+        </div>
+    </footer>
+
+  <script src="../JS_pages/messages.js"></script>
+</body>
+</html>

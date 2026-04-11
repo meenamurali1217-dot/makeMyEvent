@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vendor Dashboard | Event Nest</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../CSS_pages/vendor_style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <header class="navbar">
+    
+       <div class="logo">
+          make
+          <img
+            src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEidvekcxWaVkfJFq89IxgFYyrdwvk85jeyU-wZ1qDwYIyH3048fsmL_qB0su74UD_3Vk4Hz9rNBa0R2wh72H7rWTtHbdPZGxlXH5RKAe-NZx95eBnhkqeTkyZDyyw8mGRNyCIQ6nJUgyLNfRVpYY5BCtsWj1jjUa8H_T_th4s34RS1JjeBifNBnKuFh6Ww/s320/Screenshot%202026-03-27%20115604.png"
+            alt=""
+            class="image"
+          />
+          event
+        </div>
+
+    <div class="search-box">
+      <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="Search bookings or services...">
+    </div>
+
+    <nav class="desktop-nav">
+      <a href="../home_page/index.html" class="option" style="color:#2196f3;">Dashboard</a>
+      <a href="../services_page/services.html" class="option">My Services</a>
+      <a href="../earnings_page/earnings.html" class="option">Earnings</a>
+      <a href="../profile_page/profile.html" class="option">Profile</a>
+    </nav>
+    
+    <div class="auth">
+      <button class="register" style="background-color: #333;"><i class="fa-solid fa-briefcase"></i> Vendor Portal</button>
+    </div>
+  </header>
+
+  <main class="admin-container">
+      
+      <div class="admin-hero-enhanced">
+          <div class="hero-text">
+              <h1>Welcome back, Elite Decorators! 👋</h1>
+              <p>You have <strong>3 new booking requests</strong> pending your approval.</p>
+              <div class="hero-badges">
+                  <span><i class="fa-solid fa-circle-check"></i> Status: Available</span>
+                  <span><i class="fa-solid fa-eye"></i> Profile Views: 1.2k</span>
+              </div>
+          </div>
+          <div class="hero-visual">
+              <button class="glass-btn" onclick="openCalendarModal()"><i class="fa-solid fa-calendar-days"></i> Manage Calendar</button>
+              <button class="glass-btn primary" onclick="openServiceModal()"><i class="fa-solid fa-plus"></i> Add Service</button>
+          </div>
+      </div>
+
+      <section class="stats-row">
+          <div class="stat-card">
+              <div class="stat-icon green"><i class="fa-solid fa-indian-rupee-sign"></i></div>
+              <div class="stat-info">
+                  <h3>₹ 4.5L</h3>
+                  <p>Total Earnings</p>
+                  <span class="trend up">+15% vs last month</span>
+              </div>
+          </div>
+          <div class="stat-card">
+              <div class="stat-icon blue"><i class="fa-solid fa-calendar-check"></i></div>
+              <div class="stat-info">
+                  <h3>24</h3>
+                  <p>Confirmed Bookings</p>
+                  <span class="trend up">Next event: Tomorrow</span>
+              </div>
+          </div>
+          <div class="stat-card">
+              <div class="stat-icon orange"><i class="fa-solid fa-envelope"></i></div>
+              <div class="stat-info">
+                  <h3>3</h3>
+                  <p>Pending Requests</p>
+                  <span class="trend down">Action Required</span>
+              </div>
+          </div>
+          <div class="stat-card">
+              <div class="stat-icon purple"><i class="fa-solid fa-star"></i></div>
+              <div class="stat-info">
+                  <h3>4.8</h3>
+                  <p>Average Rating</p>
+                  <span class="trend up">Based on 120 reviews</span>
+              </div>
+          </div>
+      </section>
+
+      <section class="dashboard-grid-layout">
+          
+          <div class="left-column">
+              <div class="card table-card">
+                  <div class="card-header">
+                      <h2>New Booking Requests</h2>
+                      <a href="#" class="view-all">View All</a>
+                  </div>
+                  <div class="table-responsive">
+                      <table>
+                          <thead>
+                              <tr>
+                                  <th>Customer</th>
+                                  <th>Event Date</th>
+                                  <th>Service</th>
+                                  <th>Budget</th>
+                                  <th>Actions</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td>
+                                      <div class="vendor-cell">
+                                          <img src="https://randomuser.me/api/portraits/women/12.jpg" alt="User">
+                                          <div>
+                                              <strong>Priya Singh</strong><br>
+                                              <small>Sent: 2 hours ago</small>
+                                          </div>
+                                      </div>
+                                  </td>
+                                  <td>Feb 14, 2026</td>
+                                  <td>Wedding Stage Decor</td>
+                                  <td><strong>₹ 1.5L</strong></td>
+                                  <td>
+                                      <div class="action-buttons">
+                                          <button class="icon-btn approve" title="Accept" onclick="respondBooking(this, 'accepted')"><i class="fa-solid fa-check"></i></button>
+                                          <button class="icon-btn delete" title="Decline" onclick="respondBooking(this, 'declined')"><i class="fa-solid fa-xmark"></i></button>
+                                          <button class="icon-btn edit" title="Message"><a href="../messages_page/messages.html"><i class="fa-solid fa-comment-dots"></i></a></button>
+                                      </div>
+                                  </td>
+                              </tr>
+
+                              <tr>
+                                  <td>
+                                      <div class="vendor-cell">
+                                          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User">
+                                          <div>
+                                              <strong>Amit Verma</strong><br>
+                                              <small>Sent: 5 hours ago</small>
+                                          </div>
+                                      </div>
+                                  </td>
+                                  <td>Mar 01, 2026</td>
+                                  <td>Flower Arrangements</td>
+                                  <td><strong>₹ 45k</strong></td>
+                                  <td>
+                                      <div class="action-buttons">
+                                          <button class="icon-btn approve" title="Accept" onclick="respondBooking(this, 'accepted')"><i class="fa-solid fa-check"></i></button>
+                                          <button class="icon-btn delete" title="Decline" onclick="respondBooking(this, 'declined')"><i class="fa-solid fa-xmark"></i></button>
+                                          <button class="icon-btn edit" title="Message"><a href="../messages_page/messages.html"><i class="fa-solid fa-comment-dots"></i></a></button>
+                                      </div>
+                                  </td>
+                              </tr>
+
+                              <tr>
+                                  <td>
+                                      <div class="vendor-cell">
+                                          <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User">
+                                          <div>
+                                              <strong>Sneha Roy</strong><br>
+                                              <small>Sent: Yesterday</small>
+                                          </div>
+                                      </div>
+                                  </td>
+                                  <td>Feb 20, 2026</td>
+                                  <td>Entrance Arch</td>
+                                  <td><strong>₹ 25k</strong></td>
+                                  <td>
+                                      <div class="action-buttons">
+                                          <button class="icon-btn approve" title="Accept" onclick="respondBooking(this, 'accepted')"><i class="fa-solid fa-check"></i></button>
+                                          <button class="icon-btn delete" title="Decline" onclick="respondBooking(this, 'declined')"><i class="fa-solid fa-xmark"></i></button>
+                                          <button class="icon-btn edit" title="Message"><a href="../messages_page/messages.html"><i class="fa-solid fa-comment-dots"></i></a></button>
+                                      </div>
+                                  </td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+
+              <div class="card">
+                  <div class="card-header">
+                      <h2>Upcoming Schedule</h2>
+                  </div>
+                  <div class="task-list">
+                      <div class="task-item">
+                          <div class="icon-box blue"><i class="fa-solid fa-calendar"></i></div>
+                          <div style="flex:1;">
+                              <strong>Corporate Gala</strong>
+                              <p>Tomorrow • 10:00 AM • Taj Hotel</p>
+                          </div>
+                          <span class="tag med">Confirmed</span>
+                      </div>
+                      <div class="task-item">
+                          <div class="icon-box purple"><i class="fa-solid fa-calendar"></i></div>
+                          <div style="flex:1;">
+                              <strong>Rahul's Wedding</strong>
+                              <p>Jan 20 • 06:00 PM • Royal Gardens</p>
+                          </div>
+                          <span class="tag high">Important</span>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <div class="right-column">
+              
+              <div class="card chart-card">
+                  <div class="card-header">
+                      <h2>Monthly Earnings</h2>
+                  </div>
+                  <div class="chart-visual">
+                      <div class="bar-wrapper">
+                          <div class="bar" style="height: 40%;"></div>
+                          <span class="day">Sep</span>
+                      </div>
+                      <div class="bar-wrapper">
+                          <div class="bar" style="height: 65%;"></div>
+                          <span class="day">Oct</span>
+                      </div>
+                      <div class="bar-wrapper">
+                          <div class="bar" style="height: 50%;"></div>
+                          <span class="day">Nov</span>
+                      </div>
+                      <div class="bar-wrapper">
+                          <div class="bar active" style="height: 90%;"></div>
+                          <span class="day">Dec</span>
+                      </div>
+                      <div class="bar-wrapper">
+                          <div class="bar" style="height: 75%;"></div>
+                          <span class="day">Jan</span>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="card">
+                  <div class="card-header">
+                      <h2>Recent Reviews</h2>
+                  </div>
+                  <ul class="live-list">
+                      <li>
+                          <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="User">
+                          <div>
+                              <strong>Anjali D.</strong> <span style="color:#f59e0b;">★★★★★</span>
+                              <p>Amazing decor! Highly recommended.</p>
+                              <small>2 days ago</small>
+                          </div>
+                      </li>
+                      <li>
+                          <img src="https://randomuser.me/api/portraits/men/85.jpg" alt="User">
+                          <div>
+                              <strong>Vikram K.</strong> <span style="color:#f59e0b;">★★★★☆</span>
+                              <p>Good service but slightly delayed.</p>
+                              <small>1 week ago</small>
+                          </div>
+                      </li>
+                  </ul>
+                  <button class="view-all-btn">View All Reviews</button>
+              </div>
+
+          </div>
+
+      </section>
+
+  </main>
+
+  <div id="serviceModal" class="custom-modal">
+    <div class="modal-content-box">
+      <div class="modal-header">
+        <h3>Add New Service</h3>
+        <span class="close-modal" onclick="closeServiceModal()">×</span>
+      </div>
+      <form id="addServiceForm" onsubmit="handleServiceSubmit(event)">
+        <div class="form-group">
+          <label for="serviceName">Service Name</label>
+          <input type="text" id="serviceName" placeholder="e.g., Luxury Wedding Stage" required>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="serviceCategory">Category</label>
+            <select id="serviceCategory">
+              <option value="Decor">Decoration</option>
+              <option value="Catering">Catering</option>
+              <option value="Music">Music/DJ</option>
+              <option value="Photo">Photography</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="servicePrice">Starting Price (₹)</label>
+            <input type="number" id="servicePrice" placeholder="50000" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="serviceDesc">Description</label>
+          <textarea id="serviceDesc" rows="4" placeholder="Describe the service details..." required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>Service Images</label>
+          <div class="file-upload-box">
+            <input type="file" id="serviceImages" multiple accept="image/*">
+            <i class="fa-solid fa-cloud-arrow-up"></i>
+            <p>Click to upload images</p>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn-secondary" onclick="closeServiceModal()">Cancel</button>
+          <button type="submit" class="btn-primary">Save Service</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="calendarModal" class="custom-modal">
+    <div class="modal-content-box large">
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-calendar-days"></i> Event Calendar - January 2026</h3>
+        <span class="close-modal" onclick="closeCalendarModal()">×</span>
+      </div>
+      
+      <div class="calendar-wrapper">
+        <div class="calendar-days">
+          <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+        </div>
+        <div class="calendar-grid" id="calendarGrid">
+          </div>
+      </div>
+
+      <div class="modal-footer">
+        <div class="legend">
+          <span class="dot confirmed"></span> Confirmed
+          <span class="dot pending"></span> Pending
+        </div>
+        <button type="button" class="btn-secondary" onclick="closeCalendarModal()">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast">Action Successful!</div>
+
+  <footer>
+        <div class="footer-col">
+            CMR college <br>  
+            Kandlakoya<br>
+            Medchel Telangana
+        </div>
+        <div class="footer-col end">
+            Tel: 08965436 <br>
+            Ph.no:91 8976564390<br>
+            info@eventnest.com
+        </div>
+        <div class="footer-col end">
+            ©2035 by EventNest. <br>
+            Powered and secured by FireWall
+        </div>
+        <div class="footer-col" id="last">
+            <div class="social-icons">
+                <a href="https://www.facebook.com"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.linkedin.com"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.instagram.com"><i class="fa-brands fa-instagram"></i></a>
+            </div> 
+            <br>
+            <button id="down"><a href="../booking_page/booking.html" id="no">Bookings</a></button>
+        </div>
+    </footer>
+
+  <script src="../JS_pages/vendor_script.js"></script>
+  <script src="../../JavaScript/sigup_script.js"></script>
+</body>
+</html>

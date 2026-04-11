@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bookings & Calendar | Vendor Panel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="../CSS_pages/booking.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js'></script>
+</head>
+<body>
+
+  <header class="navbar">
+    <button class="menu-btn" onclick="openSidebar()">☰</button>
+    <div id="overlay" onclick="closeSidebar()"></div>
+
+    <div id="sidebar">
+      <div class="sidebar-header">
+        <div class="user-info">
+          <div class="user-icon" style="background: #27ae60; color: white;">
+            <i class="fa-solid fa-store"></i>
+          </div>
+          <div class="user-text">
+            <strong>Elite Decorators</strong> <br>
+            <span>Verified Vendor</span>
+          </div>
+        </div>
+        <span class="close-btn" onclick="closeSidebar()">✖</span>
+      </div>
+
+      <div class="sidebar-content">
+        <h4>Business Center</h4>
+        <a href="../home_page/index.html"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+        <a href="../services_page/services.html"><i class="fa-solid fa-list"></i> My Services</a>
+        <a href="../booking_page/booking.html" class="active-link"><i class="fa-solid fa-calendar-check"></i> Bookings <span class="badge warning" style="margin-left:auto;">3</span></a>
+        <a href="../messages_page/messages.html"><i class="fa-solid fa-message"></i> Messages</a>
+
+        <h4>Finance & Growth</h4>
+        <a href="../earnings_page/earnings.html"><i class="fa-solid fa-wallet"></i> Earnings & Payouts</a>
+        <a href="../Reviews_page/reviews.html"><i class="fa-solid fa-star"></i> Reviews</a>
+        <h4>Account</h4>
+        <a href="../profilesettings_page/profilesettings.html"><i class="fa-solid fa-gear"></i> Profile Settings</a>
+        <a href="../../event-nest/Signup/signup.html"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+      </div>
+    </div>
+    <div class="logo">
+        <img src="https://eventnestcarmel.com/wp-content/uploads/2025/05/logo-black-1536x648.png" alt="Logo" width="150px">
+    </div>
+
+    <div class="search-box">
+      <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="Search bookings...">
+    </div>
+
+   <nav class="desktop-nav">
+      <a href="../home_page/index.html" class="option" >Dashboard</a>
+      <a href="../services_page/services.html" class="option">My Services</a>
+      <a href="../earnings_page/earnings.html" class="option">Earnings</a>
+      <a href="../profile_page/profile.html" class="option">Profile</a>
+    </nav>
+
+    <div class="auth">
+      <button class="register" style="background-color: #333;"><i class="fa-solid fa-briefcase"></i> Vendor Portal</button>
+    </div>
+  </header>
+
+  <main class="admin-container">
+      
+      <div class="admin-hero-enhanced">
+          <div class="hero-text">
+              <h1>Booking Schedule</h1>
+              <p>Manage your upcoming events, check availability, and track job status.</p>
+              <div class="hero-badges">
+                  <span><i class="fa-solid fa-calendar-day"></i> Upcoming: 8</span>
+                  <span><i class="fa-solid fa-clock"></i> Pending: 2</span>
+              </div>
+          </div>
+      </div>
+
+      <div class="booking-layout">
+          
+          <div class="calendar-wrapper">
+              <div class="card">
+                  <div id="calendar"></div>
+              </div>
+          </div>
+
+          <div class="booking-sidebar">
+              
+              <div class="card pending-card">
+                  <div class="card-header-small">
+                      <h3>Pending Requests</h3>
+                      <span class="badge warning">2 New</span>
+                  </div>
+                  <div class="request-list">
+                      <div class="request-item">
+                          <div class="req-date">
+                              <span>FEB</span>
+                              <strong>14</strong>
+                          </div>
+                          <div class="req-info">
+                              <h4>Wedding Decor</h4>
+                              <p>Amit Verma • 500 Guests</p>
+                          </div>
+                          <div class="req-actions">
+                              <button class="icon-btn-sm check"><i class="fa-solid fa-check"></i></button>
+                              <button class="icon-btn-sm cross"><i class="fa-solid fa-xmark"></i></button>
+                          </div>
+                      </div>
+                      <div class="request-item">
+                          <div class="req-date">
+                              <span>MAR</span>
+                              <strong>02</strong>
+                          </div>
+                          <div class="req-info">
+                              <h4>Haldi Setup</h4>
+                              <p>Sneha Roy • 100 Guests</p>
+                          </div>
+                          <div class="req-actions">
+                              <button class="icon-btn-sm check"><i class="fa-solid fa-check"></i></button>
+                              <button class="icon-btn-sm cross"><i class="fa-solid fa-xmark"></i></button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="card upcoming-card">
+                  <div class="card-header-small">
+                      <h3>Upcoming This Month</h3>
+                  </div>
+                  <ul class="upcoming-list" id="upcomingList">
+                      </ul>
+              </div>
+
+          </div>
+      </div>
+
+  </main>
+
+  <div id="eventModal" class="modal-overlay">
+      <div class="modal-card booking-modal">
+          <div class="modal-header">
+              <h2>Booking Details</h2>
+              <span class="close-modal" onclick="closeModal()">✖</span>
+          </div>
+          
+          <div class="modal-body">
+              <div class="modal-status-bar" id="modalStatus">Confirmed</div>
+              
+              <div class="detail-row">
+                  <div class="icon"><i class="fa-solid fa-user"></i></div>
+                  <div>
+                      <small>Customer Name</small>
+                      <strong id="mCustomer">Loading...</strong>
+                  </div>
+              </div>
+
+              <div class="detail-row">
+                  <div class="icon"><i class="fa-solid fa-layer-group"></i></div>
+                  <div>
+                      <small>Service Type</small>
+                      <strong id="mService">Loading...</strong>
+                  </div>
+              </div>
+
+              <div class="detail-row">
+                  <div class="icon"><i class="fa-solid fa-calendar"></i></div>
+                  <div>
+                      <small>Date & Time</small>
+                      <strong id="mDate">Loading...</strong>
+                  </div>
+              </div>
+
+              <div class="detail-row">
+                  <div class="icon"><i class="fa-solid fa-location-dot"></i></div>
+                  <div>
+                      <small>Venue Location</small>
+                      <strong id="mLocation">Loading...</strong>
+                  </div>
+              </div>
+
+              <div class="detail-row">
+                  <div class="icon"><i class="fa-solid fa-indian-rupee-sign"></i></div>
+                  <div>
+                      <small>Total Amount</small>
+                      <strong id="mPrice">Loading...</strong>
+                  </div>
+              </div>
+          </div>
+
+          <div class="modal-footer">
+              <button class="s-btn contact"><i class="fa-solid fa-phone"></i> Contact</button>
+              <button class="s-btn chat"><i class="fa-solid fa-message"></i> Message</button>
+          </div>
+      </div>
+  </div>
+
+  <footer>
+        <div class="footer-col">
+            CMR college <br>  
+            Kandlakoya<br>
+            Medchel Telangana
+        </div>
+        <div class="footer-col end">
+            Tel: 08965436 <br>
+            Ph.no:91 8976564390<br>
+            info@eventnest.com
+        </div>
+        <div class="footer-col end">
+            ©2035 by EventNest. <br>
+            Powered and secured by FireWall
+        </div>
+        <div class="footer-col" id="last">
+            <div class="social-icons">
+                <a href="https://www.facebook.com"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.linkedin.com"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.instagram.com"><i class="fa-brands fa-instagram"></i></a>
+            </div> 
+            <br>
+            <button id="down"><a href="../JS_pages/booking.js" id="no">Bookings</a></button>
+        </div>
+    </footer>
+
+  <script src="../JS_pages/booking.js"></script>
+</body>
+</html>

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Manage Vendors | Admin Panel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../admin_CSS/vendormanagement.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <header class="navbar">
+    
+    <!-- Header -->
+        <div class="logo">
+          make
+          <img
+            src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEidvekcxWaVkfJFq89IxgFYyrdwvk85jeyU-wZ1qDwYIyH3048fsmL_qB0su74UD_3Vk4Hz9rNBa0R2wh72H7rWTtHbdPZGxlXH5RKAe-NZx95eBnhkqeTkyZDyyw8mGRNyCIQ6nJUgyLNfRVpYY5BCtsWj1jjUa8H_T_th4s34RS1JjeBifNBnKuFh6Ww/s320/Screenshot%202026-03-27%20115604.png"
+            alt=""
+            class="image"
+          />
+          event
+        </div>
+
+    <div class="search-box">
+      <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="vendorSearch" placeholder="Search vendor name, ID or city..." onkeyup="searchTable()">
+    </div>
+
+    <nav class="desktop-nav">
+      <a href="../admin_dashboard/index.html" class="option">Dashboard</a>
+      <a href="#" class="option" style="color:#2196f3;">Vendors</a>
+      <a href="../user_page/user.html" class="option">Users</a>
+      <a href="../booking_page/booking.html" class="option">Booking</a>
+    </nav>
+    
+    <div class="auth">
+      <button class="register" style="background-color: #333;"><i class="fa-solid fa-shield-halved"></i> Admin Panel</button>
+    </div>
+  </header>
+
+  <main class="admin-container">
+      
+      <div class="admin-header">
+          <div>
+              <h1>Vendor Management</h1>
+              <p>View, approve, and manage all service providers on the platform.</p>
+          </div>
+          <button class="primary-btn theme-btn" onclick="openVendorModal()"><i class="fa-solid fa-plus"></i> Add New Vendor</button>
+      </div>
+
+      <section class="stats-row">
+          <div class="stat-card">
+              <div class="stat-icon blue"><i class="fa-solid fa-shop"></i></div>
+              <div class="stat-info">
+                  <h3>156</h3>
+                  <p>Total Vendors</p>
+              </div>
+          </div>
+          <div class="stat-card">
+              <div class="stat-icon green"><i class="fa-solid fa-check-circle"></i></div>
+              <div class="stat-info">
+                  <h3>142</h3>
+                  <p>Active & Verified</p>
+              </div>
+          </div>
+          <div class="stat-card">
+              <div class="stat-icon orange"><i class="fa-solid fa-hourglass-half"></i></div>
+              <div class="stat-info">
+                  <h3>8</h3>
+                  <p>Pending Approval</p>
+              </div>
+          </div>
+          <div class="stat-card">
+              <div class="stat-icon purple"><i class="fa-solid fa-ban"></i></div>
+              <div class="stat-info">
+                  <h3>6</h3>
+                  <p>Suspended/Blocked</p>
+              </div>
+          </div>
+      </section>
+
+      <section class="vendor-table-section">
+          
+          <div class="card table-card full-width-card">
+              <div class="card-header">
+                  <h2>Registered Vendors List</h2>
+                  
+                  <div class="table-actions">
+                      <select class="filter-select">
+                          <option>All Categories</option>
+                          <option>Catering</option>
+                          <option>Photography</option>
+                          <option>Decoration</option>
+                      </select>
+                      <select class="filter-select">
+                          <option>Status: Any</option>
+                          <option>Active</option>
+                          <option>Pending</option>
+                          <option>Blocked</option>
+                      </select>
+                      <button class="icon-btn-bordered" title="Filter"><i class="fa-solid fa-filter"></i></button>
+                      <button class="icon-btn-bordered" title="Export CSV"><i class="fa-solid fa-download"></i> Export</button>
+                  </div>
+              </div>
+
+              <div class="table-responsive">
+                  <table id="vendorTable">
+                      <thead>
+                          <tr>
+                              <th>Vendor Info</th>
+                              <th>Category</th>
+                              <th>Location</th>
+                              <th>Joined Date</th>
+                              <th>Bookings</th>
+                              <th>Rating</th>
+                              <th>Status</th>
+                              <th>Actions</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr>
+                              <td>
+                                  <div class="vendor-cell">
+                                      <img src="https://st5.depositphotos.com/2760050/74592/i/450/depositphotos_745925384-stock-photo-businessman-portrait-outdoor-smiling-mature.jpg" alt="Vendor">
+                                      <div>
+                                          <strong>Spice Route Catering</strong><br>
+                                          <small>ID: #V-1001</small>
+                                      </div>
+                                  </div>
+                              </td>
+                              <td>Catering</td>
+                              <td>Pune, MH</td>
+                              <td>Jan 12, 2024</td>
+                              <td>45</td>
+                              <td><span class="star-rating"><i class="fa-solid fa-star"></i> 4.8</span></td>
+                              <td><span class="status completed">Active</span></td>
+                              <td>
+                                  <div class="action-buttons">
+                                      <button class="icon-btn edit" title="Edit"><i class="fa-solid fa-pen"></i></button>
+                                      <button class="icon-btn delete" title="Suspend" onclick="toggleVendorStatus(this)"><i class="fa-solid fa-ban"></i></button>
+                                  </div>
+                              </td>
+                          </tr>
+
+                          <tr>
+                              <td>
+                                  <div class="vendor-cell">
+                                      <img src="https://thumbs.dreamstime.com/b/handsome-young-male-photographer-using-professional-camera-photo-studio-handsome-young-male-photographer-using-professional-154838408.jpg" alt="Vendor">
+                                      <div>
+                                          <strong>Lens Magic Studio</strong><br>
+                                          <small>ID: #V-1002</small>
+                                      </div>
+                                  </div>
+                              </td>
+                              <td>Photography</td>
+                              <td>Delhi, NCR</td>
+                              <td>Feb 05, 2024</td>
+                              <td>32</td>
+                              <td><span class="star-rating"><i class="fa-solid fa-star"></i> 4.9</span></td>
+                              <td><span class="status completed">Active</span></td>
+                              <td>
+                                  <div class="action-buttons">
+                                      <button class="icon-btn edit" title="Edit"><i class="fa-solid fa-pen"></i></button>
+                                      <button class="icon-btn delete" title="Suspend" onclick="toggleVendorStatus(this)"><i class="fa-solid fa-ban"></i></button>
+                                  </div>
+                              </td>
+                          </tr>
+
+                          <tr>
+                              <td>
+                                  <div class="vendor-cell">
+                                      <img src="https://receptionflipflops.com/cdn/shop/articles/Outdoor_night_wedding_procession.jpg?v=1672263783" alt="Vendor">
+                                      <div>
+                                          <strong>Elite Decorators</strong><br>
+                                          <small>ID: #V-1003</small>
+                                      </div>
+                                  </div>
+                              </td>
+                              <td>Decoration</td>
+                              <td>Mumbai, MH</td>
+                              <td>Mar 20, 2024</td>
+                              <td>0</td>
+                              <td><span class="star-rating text-gray">N/A</span></td>
+                              <td><span class="status pending">Pending</span></td>
+                              <td>
+                                  <div class="action-buttons">
+                                      <button class="icon-btn approve" title="Approve" onclick="approveVendorRow(this)"><i class="fa-solid fa-check"></i></button>
+                                      <button class="icon-btn delete" title="Reject"><i class="fa-solid fa-trash"></i></button>
+                                  </div>
+                              </td>
+                          </tr>
+                          
+                          <tr>
+                              <td>
+                                  <div class="vendor-cell">
+                                      <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=100&auto=format&fit=crop" alt="Vendor">
+                                      <div>
+                                          <strong>Urban Grill BBQ</strong><br>
+                                          <small>ID: #V-1005</small>
+                                      </div>
+                                  </div>
+                              </td>
+                              <td>Catering</td>
+                              <td>Hyderabad, TS</td>
+                              <td>May 15, 2024</td>
+                              <td>8</td>
+                              <td><span class="star-rating"><i class="fa-solid fa-star"></i> 4.2</span></td>
+                              <td><span class="status completed">Active</span></td>
+                              <td>
+                                  <div class="action-buttons">
+                                      <button class="icon-btn edit" title="Edit"><i class="fa-solid fa-pen"></i></button>
+                                      <button class="icon-btn delete" title="Suspend" onclick="toggleVendorStatus(this)"><i class="fa-solid fa-ban"></i></button>
+                                  </div>
+                              </td>
+                          </tr>
+
+                      </tbody>
+                  </table>
+              </div>
+              
+              <div class="table-footer">
+                  <p>Showing 1 to 4 of 156 entries</p>
+                  <div class="pagination">
+                      <button>Previous</button>
+                      <button class="active">1</button>
+                      <button>2</button>
+                      <button>3</button>
+                      <button>Next</button>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+  </main>
+
+  <div id="vendor-modal" class="modal-overlay">
+      <div class="modal-card">
+          <div class="modal-header">
+              <h2><i class="fa-solid fa-store"></i> Add New Vendor</h2>
+              <span class="close-modal-btn" onclick="closeVendorModal()">&times;</span>
+          </div>
+          
+          <form id="add-vendor-form">
+              <div class="form-grid">
+                  <div class="form-group full-width">
+                      <label>Business Name</label>
+                      <input type="text" id="v-name" placeholder="e.g. Elite Catering Services" required>
+                  </div>
+
+                  <div class="form-group">
+                      <label>Service Category</label>
+                      <select id="v-category" required>
+                          <option value="">Select Category</option>
+                          <option value="Catering">Catering</option>
+                          <option value="Decoration">Decoration</option>
+                          <option value="Photography">Photography</option>
+                          <option value="Venue">Venue</option>
+                          <option value="Entertainment">Entertainment</option>
+                      </select>
+                  </div>
+
+                  <div class="form-group">
+                      <label>City / Location</label>
+                      <input type="text" id="v-location" placeholder="e.g. Mumbai" required>
+                  </div>
+
+                  <div class="form-group">
+                      <label>Starting Price (₹)</label>
+                      <input type="number" placeholder="e.g. 50000" required>
+                  </div>
+
+                  <div class="form-group">
+                      <label>Contact Number</label>
+                      <input type="tel" placeholder="+91 99999 99999" required>
+                  </div>
+
+                  <div class="form-group full-width">
+                      <label>Vendor Logo / Image</label>
+                      <div class="file-upload-wrapper">
+                          <input type="file" id="vendor-img-input" accept="image/*" onchange="previewSingleImage()">
+                          <div class="upload-box">
+                              <i class="fa-solid fa-cloud-arrow-up"></i>
+                              <p>Click to upload image</p>
+                          </div>
+                      </div>
+                      <div id="image-preview-container" class="preview-grid"></div>
+                  </div>
+              </div>
+
+              <div class="modal-footer">
+                  <button type="button" class="btn-cancel" onclick="closeVendorModal()">Cancel</button>
+                  <button type="submit" class="btn-save">Add Vendor</button>
+              </div>
+          </form>
+      </div>
+  </div>
+
+  <footer>
+        <div class="footer-col">
+            CMR college <br>  
+            Kandlakoya<br>
+            Medchel Telangana
+        </div>
+        <div class="footer-col end">
+            Tel: 08965436 <br>
+            Ph.no:91 8976564390<br>
+            info@eventnest.com
+        </div>
+        <div class="footer-col end">
+            ©2035 by EventNest. <br>
+            Powered and secured by FireWall
+        </div>
+        <div class="footer-col" id="last">
+            <div class="social-icons">
+                <a href="https://www.facebook.com"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.linkedin.com"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.instagram.com"><i class="fa-brands fa-instagram"></i></a>
+            </div> 
+            <br>
+            <button id="down"><a href="../booking_page/booking.html" id="no">Bookings</a></button>
+        </div>
+    </footer>
+
+  <script src="../admin_JS/vendormanagement.js"></script>
+</body>
+</html>

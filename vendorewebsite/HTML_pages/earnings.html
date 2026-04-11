@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Earnings & Payouts | Vendor Panel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../CSS_pages/earnings.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <button class="menu-btn" onclick="openSidebar()">☰</button>
+    <div id="overlay" onclick="closeSidebar()"></div>
+
+    <div id="sidebar">
+      <div class="sidebar-header">
+        <div class="user-info">
+          <div class="user-icon" style="background: #27ae60; color: white;">
+            <i class="fa-solid fa-store"></i>
+          </div>
+          <div class="user-text">
+            <strong>Elite Decorators</strong> <br>
+            <span>Verified Vendor</span>
+          </div>
+        </div>
+        <span class="close-btn" onclick="closeSidebar()">✖</span>
+      </div>
+
+      <div class="sidebar-content">
+        <h4>Business Center</h4>
+        <a href="../home_page/index.html"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+        <a href="../services_page/services.html"><i class="fa-solid fa-list"></i> My Services</a>
+        <a href="../booking_page/booking.html"><i class="fa-solid fa-calendar-check"></i> Bookings <span class="badge warning" style="margin-left:auto;">3</span></a>
+        <a href="../messages_page/messages.html"><i class="fa-solid fa-message"></i> Messages</a>
+
+        <h4>Finance & Growth</h4>
+        <a href="../earnings_page/earnings.html" class="active-link"><i class="fa-solid fa-wallet"></i> Earnings & Payouts</a>
+        <a href="../Reviews_page/reviews.html"><i class="fa-solid fa-star"></i> Reviews</a>
+        <h4>Account</h4>
+        <a href="../profilesettings_page/profilesettings.html"><i class="fa-solid fa-gear"></i> Profile Settings</a>
+        <a href="../../event-nest/Signup/signup.html"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+      </div>
+    </div>
+
+    <div class="logo">
+        <img src="https://eventnestcarmel.com/wp-content/uploads/2025/05/logo-black-1536x648.png" alt="Logo" width="150px">
+    </div>
+
+    <div class="search-box">
+      <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="Search transactions...">
+    </div>
+
+    <nav class="desktop-nav">
+      <a href="../home_page/index.html" class="option" >Dashboard</a>
+      <a href="../services_page/services.html" class="option">My Services</a>
+      <a href="../earnings_page/earnings.html" style="color:#2196f3;" class="option">Earnings</a>
+      <a href="../profile_page/profile.html" class="option">Profile</a>
+    </nav>
+    
+    <div class="auth">
+      <button class="register" style="background-color: #333;"><i class="fa-solid fa-briefcase"></i> Vendor Portal</button>
+    </div>
+  </header>
+
+  <main class="admin-container">
+      
+      <div class="admin-hero-enhanced">
+          <div class="hero-text">
+              <h1>My Wallet</h1>
+              <p>Manage your revenue, track settlements, and request payouts.</p>
+              <div class="hero-badges">
+                  <span><i class="fa-solid fa-wallet"></i> Available Balance: <strong>₹ 45,200</strong></span>
+                  <span><i class="fa-solid fa-clock"></i> Next Payout: Jan 20</span>
+              </div>
+          </div>
+          <div class="hero-visual">
+              <button class="glass-btn" onclick="alert('Downloading Statement...')"><i class="fa-solid fa-download"></i> Statement</button>
+              <button class="glass-btn primary" onclick="requestWithdrawal()"><i class="fa-solid fa-money-bill-transfer"></i> Withdraw Funds</button>
+          </div>
+      </div>
+
+      <section class="stats-row">
+          <div class="stat-card">
+              <div class="stat-icon green"><i class="fa-solid fa-indian-rupee-sign"></i></div>
+              <div class="stat-info">
+                  <h3>₹ 4.5L</h3>
+                  <p>Total Earnings</p>
+                  <span class="trend up">Lifetime</span>
+              </div>
+          </div>
+          <div class="stat-card">
+              <div class="stat-icon orange"><i class="fa-solid fa-hourglass-half"></i></div>
+              <div class="stat-info">
+                  <h3>₹ 12,000</h3>
+                  <p>Pending Clearance</p>
+                  <span class="trend neutral">From recent jobs</span>
+              </div>
+          </div>
+          <div class="stat-card">
+              <div class="stat-icon blue"><i class="fa-solid fa-calendar-day"></i></div>
+              <div class="stat-info">
+                  <h3>₹ 28,500</h3>
+                  <p>Earned this Month</p>
+                  <span class="trend up">+12% Growth</span>
+              </div>
+          </div>
+          <div class="stat-card">
+              <div class="stat-icon purple"><i class="fa-solid fa-building-columns"></i></div>
+              <div class="stat-info">
+                  <h3>₹ 3.8L</h3>
+                  <p>Total Withdrawn</p>
+                  <span class="trend up">Success</span>
+              </div>
+          </div>
+      </section>
+
+      <section class="dashboard-grid-layout">
+          
+          <div class="left-column">
+              <div class="card table-card">
+                  <div class="card-header">
+                      <h2>Transaction History</h2>
+                      <div class="table-actions">
+                          <select class="filter-select">
+                              <option>All Transactions</option>
+                              <option>Credits (Income)</option>
+                              <option>Debits (Withdrawals)</option>
+                          </select>
+                      </div>
+                  </div>
+                  <div class="table-responsive">
+                      <table>
+                          <thead>
+                              <tr>
+                                  <th>Date</th>
+                                  <th>Description</th>
+                                  <th>Reference ID</th>
+                                  <th>Amount</th>
+                                  <th>Status</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td>Jan 15, 2026</td>
+                                  <td>
+                                      <strong>Payment for Booking #BK-902</strong><br>
+                                      <small>Wedding Decor - Priya Singh</small>
+                                  </td>
+                                  <td>TXN-884201</td>
+                                  <td class="text-green">+ ₹ 25,000</td>
+                                  <td><span class="status completed">Cleared</span></td>
+                              </tr>
+
+                              <tr>
+                                  <td>Jan 10, 2026</td>
+                                  <td>
+                                      <strong>Payout to Bank Account</strong><br>
+                                      <small>HDFC Bank **** 1234</small>
+                                  </td>
+                                  <td>WD-77210</td>
+                                  <td class="text-red">- ₹ 50,000</td>
+                                  <td><span class="status completed">Processed</span></td>
+                              </tr>
+
+                              <tr>
+                                  <td>Jan 08, 2026</td>
+                                  <td>
+                                      <strong>Payment for Booking #BK-885</strong><br>
+                                      <small>Corporate Event</small>
+                                  </td>
+                                  <td>TXN-884100</td>
+                                  <td class="text-orange">+ ₹ 12,000</td>
+                                  <td><span class="status pending">Pending</span></td>
+                              </tr>
+
+                              <tr>
+                                  <td>Jan 05, 2026</td>
+                                  <td>
+                                      <strong>Payment for Booking #BK-850</strong><br>
+                                      <small>Birthday Party</small>
+                                  </td>
+                                  <td>TXN-884050</td>
+                                  <td class="text-green">+ ₹ 8,000</td>
+                                  <td><span class="status completed">Cleared</span></td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+          </div>
+
+          <div class="right-column">
+              
+              <div class="card bank-card">
+                  <div class="card-header">
+                      <h2>Payout Method</h2>
+                      <button class="icon-btn edit"><i class="fa-solid fa-pen"></i></button>
+                  </div>
+                  <div class="bank-details">
+                      <div class="bank-icon">
+                          <i class="fa-solid fa-building-columns"></i>
+                      </div>
+                      <div class="bank-info">
+                          <h4>HDFC Bank</h4>
+                          <p>Acct: ************1234</p>
+                          <p>IFSC: HDFC000123</p>
+                          <span class="badge active">Primary</span>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="card chart-card">
+                  <div class="card-header">
+                      <h2>Revenue Trend</h2>
+                  </div>
+                  <div class="chart-visual small-chart">
+                      <div class="bar-wrapper">
+                          <div class="bar" style="height: 40%;"></div>
+                          <span class="day">S</span>
+                      </div>
+                      <div class="bar-wrapper">
+                          <div class="bar" style="height: 60%;"></div>
+                          <span class="day">M</span>
+                      </div>
+                      <div class="bar-wrapper">
+                          <div class="bar" style="height: 30%;"></div>
+                          <span class="day">T</span>
+                      </div>
+                      <div class="bar-wrapper">
+                          <div class="bar active" style="height: 80%;"></div>
+                          <span class="day">W</span>
+                      </div>
+                      <div class="bar-wrapper">
+                          <div class="bar" style="height: 55%;"></div>
+                          <span class="day">T</span>
+                      </div>
+                      <div class="bar-wrapper">
+                          <div class="bar" style="height: 90%;"></div>
+                          <span class="day">F</span>
+                      </div>
+                      <div class="bar-wrapper">
+                          <div class="bar" style="height: 70%;"></div>
+                          <span class="day">S</span>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="card info-box">
+                  <h3><i class="fa-solid fa-circle-info"></i> Payout Rules</h3>
+                  <ul>
+                      <li>Minimum withdrawal amount is ₹ 1,000.</li>
+                      <li>Payouts are processed every Monday.</li>
+                      <li>Funds take 24-48 hours to reflect in your bank account.</li>
+                  </ul>
+              </div>
+
+          </div>
+
+      </section>
+
+  </main>
+
+  <footer>
+        <div class="footer-col">
+            CMR college <br>  
+            Kandlakoya<br>
+            Medchel Telangana
+        </div>
+        <div class="footer-col end">
+            Tel: 08965436 <br>
+            Ph.no:91 8976564390<br>
+            info@eventnest.com
+        </div>
+        <div class="footer-col end">
+            ©2035 by EventNest. <br>
+            Powered and secured by FireWall
+        </div>
+        <div class="footer-col" id="last">
+            <div class="social-icons">
+                <a href="https://www.facebook.com"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.linkedin.com"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.instagram.com"><i class="fa-brands fa-instagram"></i></a>
+            </div> 
+            <br>
+            <button id="down"><a href="../booking_page/booking.html" id="no">Bookings</a></button>
+        </div>
+    </footer>
+
+  <script src="../JS_pages/earnings.js"></script>
+</body>
+</html>

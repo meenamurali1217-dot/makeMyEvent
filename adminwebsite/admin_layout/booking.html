@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Manage Bookings | Admin Panel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../admin_CSS/booking.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <header class="navbar">
+    
+    
+    <!-- Header -->
+        <div class="logo">
+          make
+          <img
+            src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEidvekcxWaVkfJFq89IxgFYyrdwvk85jeyU-wZ1qDwYIyH3048fsmL_qB0su74UD_3Vk4Hz9rNBa0R2wh72H7rWTtHbdPZGxlXH5RKAe-NZx95eBnhkqeTkyZDyyw8mGRNyCIQ6nJUgyLNfRVpYY5BCtsWj1jjUa8H_T_th4s34RS1JjeBifNBnKuFh6Ww/s320/Screenshot%202026-03-27%20115604.png"
+            alt=""
+            class="image"
+          />
+          event
+        </div>
+
+    <div class="search-box">
+      <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="bookingSearch" placeholder="Search Booking ID, User, or Vendor..." onkeyup="searchBookingTable()">
+    </div>
+
+    <nav class="desktop-nav">
+      <a href="../admin_dashboard/index.html" class="option" >Dashboard</a>
+      <a href="../vendormanagement_page/vendormanagement.html" class="option">Vendors</a>
+      <a href="../user_page/user.html" class="option">Users</a>
+      <a href="./booking_page/booking.html" class="option"style="color:#2196f3;">Booking</a>
+    </nav>
+    
+    <div class="auth">
+      <button class="register" style="background-color: #333;"><i class="fa-solid fa-shield-halved"></i> Admin Panel</button>
+    </div>
+  </header>
+
+  <main class="admin-container">
+      
+      <div class="admin-hero-enhanced">
+          <div class="hero-text">
+              <h1>Global Bookings Overview</h1>
+              <p>Track all scheduled events, manage reservations, and monitor booking statuses.</p>
+              <div class="hero-badges">
+                  <span><i class="fa-solid fa-calendar-day"></i> Upcoming Events: 24</span>
+                  <span><i class="fa-solid fa-check-double"></i> Completed This Month: 156</span>
+              </div>
+          </div>
+          <div class="hero-visual">
+              <button class="glass-btn"><i class="fa-solid fa-filter"></i> Filter Date</button>
+              <button class="glass-btn primary"><i class="fa-solid fa-download"></i> Export List</button>
+          </div>
+      </div>
+
+      <section class="stats-row">
+          <div class="stat-card">
+              <div class="stat-icon purple"><i class="fa-solid fa-calendar-plus"></i></div>
+              <div class="stat-info">
+                  <h3>1,240</h3>
+                  <p>Total Bookings</p>
+                  <span class="trend up">All Time</span>
+              </div>
+          </div>
+          <div class="stat-card">
+              <div class="stat-icon green"><i class="fa-solid fa-calendar-check"></i></div>
+              <div class="stat-info">
+                  <h3>85</h3>
+                  <p>Completed</p>
+                  <span class="trend up">This Month</span>
+              </div>
+          </div>
+          <div class="stat-card">
+              <div class="stat-icon blue"><i class="fa-solid fa-clock"></i></div>
+              <div class="stat-info">
+                  <h3>12</h3>
+                  <p>Upcoming Today</p>
+                  <span class="trend neutral">Scheduled</span>
+              </div>
+          </div>
+          <div class="stat-card">
+              <div class="stat-icon orange"><i class="fa-solid fa-ban"></i></div>
+              <div class="stat-info">
+                  <h3>5</h3>
+                  <p>Cancelled</p>
+                  <span class="trend down">Needs Review</span>
+              </div>
+          </div>
+      </section>
+
+      <section class="vendor-table-section">
+          
+          <div class="card table-card full-width-card">
+              <div class="card-header">
+                  <h2>All Bookings Registry</h2>
+                  <div class="table-actions">
+                      <select class="filter-select">
+                          <option>Status: All</option>
+                          <option>Confirmed</option>
+                          <option>Pending</option>
+                          <option>Cancelled</option>
+                          <option>Completed</option>
+                      </select>
+                      <select class="filter-select">
+                          <option>Service Type</option>
+                          <option>Catering</option>
+                          <option>Decoration</option>
+                          <option>Photography</option>
+                      </select>
+                      <button class="icon-btn-bordered"><i class="fa-solid fa-sort-amount-down"></i></button>
+                  </div>
+              </div>
+
+              <div class="table-responsive">
+                  <table id="bookingTable">
+                      <thead>
+                          <tr>
+                              <th>Booking ID</th>
+                              <th>Event Date</th>
+                              <th>Customer (User)</th>
+                              <th>Service Provider</th>
+                              <th>Service Type</th>
+                              <th>Amount</th>
+                              <th>Status</th>
+                              <th>Actions</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr>
+                              <td><strong>#BK-9001</strong></td>
+                              <td>Oct 24, 2026<br><small>10:00 AM</small></td>
+                              <td>
+                                  <div class="vendor-cell">
+                                      <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User" class="avatar-sm">
+                                      <span>Amit Verma</span>
+                                  </div>
+                              </td>
+                              <td><strong>Elite Decorators</strong></td>
+                              <td><span class="tag med">Decoration</span></td>
+                              <td><strong>₹1.5L</strong></td>
+                              <td><span class="status completed">Confirmed</span></td>
+                              <td>
+                                  <div class="action-buttons">
+                                      <button class="icon-btn edit" title="View Details"><i class="fa-solid fa-eye"></i></button>
+                                      <button class="icon-btn delete" title="Cancel Booking" onclick="cancelBooking(this)"><i class="fa-solid fa-xmark"></i></button>
+                                  </div>
+                              </td>
+                          </tr>
+
+                          <tr>
+                              <td><strong>#BK-9002</strong></td>
+                              <td>Nov 05, 2026<br><small>01:00 PM</small></td>
+                              <td>
+                                  <div class="vendor-cell">
+                                      <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User" class="avatar-sm">
+                                      <span>Sneha Roy</span>
+                                  </div>
+                              </td>
+                              <td><strong>Spice Route</strong></td>
+                              <td><span class="tag low">Catering</span></td>
+                              <td><strong>₹85k</strong></td>
+                              <td><span class="status pending">Pending</span></td>
+                              <td>
+                                  <div class="action-buttons">
+                                      <button class="icon-btn edit" title="View Details"><i class="fa-solid fa-eye"></i></button>
+                                      <button class="icon-btn delete" title="Cancel Booking" onclick="cancelBooking(this)"><i class="fa-solid fa-xmark"></i></button>
+                                  </div>
+                              </td>
+                          </tr>
+
+                          <tr>
+                              <td><strong>#BK-9003</strong></td>
+                              <td>Dec 12, 2026<br><small>09:00 AM</small></td>
+                              <td>
+                                  <div class="vendor-cell">
+                                      <img src="https://randomuser.me/api/portraits/men/12.jpg" alt="User" class="avatar-sm">
+                                      <span>Rahul K.</span>
+                                  </div>
+                              </td>
+                              <td><strong>Lens Magic</strong></td>
+                              <td><span class="tag high">Photography</span></td>
+                              <td><strong>₹40k</strong></td>
+                              <td><span class="status canceled">Cancelled</span></td>
+                              <td>
+                                  <div class="action-buttons">
+                                      <button class="icon-btn edit" title="View Details"><i class="fa-solid fa-eye"></i></button>
+                                  </div>
+                              </td>
+                          </tr>
+
+                          <tr>
+                              <td><strong>#BK-9004</strong></td>
+                              <td>Jan 10, 2027<br><small>06:00 PM</small></td>
+                              <td>
+                                  <div class="vendor-cell">
+                                      <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="User" class="avatar-sm">
+                                      <span>Priya Singh</span>
+                                  </div>
+                              </td>
+                              <td><strong>Royal Hall</strong></td>
+                              <td><span class="tag med">Venue</span></td>
+                              <td><strong>₹25k</strong></td>
+                              <td><span class="status completed">Completed</span></td>
+                              <td>
+                                  <div class="action-buttons">
+                                      <button class="icon-btn edit" title="View Details"><i class="fa-solid fa-eye"></i></button>
+                                  </div>
+                              </td>
+                          </tr>
+
+                          <tr>
+                              <td><strong>#BK-9005</strong></td>
+                              <td>Feb 14, 2027<br><small>08:00 PM</small></td>
+                              <td>
+                                  <div class="vendor-cell">
+                                      <img src="https://randomuser.me/api/portraits/men/85.jpg" alt="User" class="avatar-sm">
+                                      <span>Vikram Das</span>
+                                  </div>
+                              </td>
+                              <td><strong>DJ Beats</strong></td>
+                              <td><span class="tag low">Music</span></td>
+                              <td><strong>₹15k</strong></td>
+                              <td><span class="status completed">Confirmed</span></td>
+                              <td>
+                                  <div class="action-buttons">
+                                      <button class="icon-btn edit" title="View Details"><i class="fa-solid fa-eye"></i></button>
+                                      <button class="icon-btn delete" title="Cancel Booking" onclick="cancelBooking(this)"><i class="fa-solid fa-xmark"></i></button>
+                                  </div>
+                              </td>
+                          </tr>
+
+                      </tbody>
+                  </table>
+              </div>
+
+              <div class="table-footer">
+                  <p>Showing 1 to 5 of 1,240 entries</p>
+                  <div class="pagination">
+                      <button>Previous</button>
+                      <button class="active">1</button>
+                      <button>2</button>
+                      <button>3</button>
+                      <button>Next</button>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+  </main>
+
+  <footer>
+        <div class="footer-col">
+            CMR college <br>  
+            Kandlakoya<br>
+            Medchel Telangana
+        </div>
+        <div class="footer-col end">
+            Tel: 08965436 <br>
+            Ph.no:91 8976564390<br>
+            info@eventnest.com
+        </div>
+        <div class="footer-col end">
+            ©2035 by EventNest. <br>
+            Powered and secured by FireWall
+        </div>
+        <div class="footer-col" id="last">
+            <div class="social-icons">
+                <a href="https://www.facebook.com"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.linkedin.com"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://www.github.com"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.instagram.com"><i class="fa-brands fa-instagram"></i></a>
+            </div> 
+            <br>
+            <button id="down"><a href="../booking_page/booking.html" id="no"</a>Bookings</button>
+        </div>
+    </footer>
+
+  <script src="../admin_JS/booking.js"></script>
+</body>
+</html>

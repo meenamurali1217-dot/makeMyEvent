@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Dashboard | EventNest</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="../CSS/user_style.css">
+
+</head>
+
+   <!-- Header -->
+      <header class="navbar">
+        <div class="logo">
+          make
+          <img
+            src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEidvekcxWaVkfJFq89IxgFYyrdwvk85jeyU-wZ1qDwYIyH3048fsmL_qB0su74UD_3Vk4Hz9rNBa0R2wh72H7rWTtHbdPZGxlXH5RKAe-NZx95eBnhkqeTkyZDyyw8mGRNyCIQ6nJUgyLNfRVpYY5BCtsWj1jjUa8H_T_th4s34RS1JjeBifNBnKuFh6Ww/s320/Screenshot%202026-03-27%20115604.png"
+            alt=""
+            class="image"
+          />
+          event
+        </div>
+
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" placeholder="Search events or Services..." />
+        </div>
+
+        <nav>
+          <a href="#" class="option">Home</a>
+          <a href="./gallery_page.html" class="option"
+            >Gallery</a
+          >
+          <a href="./contact.html" class="option"
+            >Contact</a
+          >
+          <a href="./templates/about.html" class="option"
+            >About</a
+          >
+        </nav>
+
+        <div class="icon-btn">
+      ❤️
+      <span>Wishlist</span>
+    </div>
+    
+       
+  <!-- User Menu -->
+  <div class="user-menu">
+    <div class="user-btn" onclick="toggleUserMenu()">
+      <img src="../images/meena.png" alt="User Avatar" class="avatar" / >
+      <span>Meena Murali</span> &#9660;
+    </div>
+
+    <div id="userDropdown" class="user-dropdown">
+      <a href="../templates/user_page.html"><p>👤 My Profile</p></a>
+      <p onclick="changePassword()">🔑 Change Password</p>
+      <p onclick="logout()">⏻ Logout</p>
+    </div>
+  </div>
+      </header>
+ 
+    <main class="dashboard-container">
+        
+        <section class="welcome-banner">
+            <div>
+                <h1>Welcome back, <span id="welcome-user-name">Rahul</span>! 👋</h1>
+                <p>Here is an overview of your event planning progress.</p>
+            </div>
+            <button class="new-event-btn"><a href="../Services/services_page.html">+ Plan New Event</a></button>
+        </section>
+
+        <section class="stats-grid">
+            <div class="stat-card">
+                <div class="icon-box blue"><i class="fa-solid fa-calendar-check"></i></div>
+                <div>
+                    <h3>2</h3>
+                    <p>Active Bookings</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="icon-box orange"><i class="fa-solid fa-clock"></i></div>
+                <div>
+                    <h3>1</h3>
+                    <p>Pending Approval</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="icon-box green"><i class="fa-solid fa-wallet"></i></div>
+                <div>
+                    <h3>₹ 45,000</h3>
+                    <p>Total Spent</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="dashboard-content-split">
+            
+            <div class="bookings-section">
+                <h2>My Bookings</h2>
+                
+                <div class="booking-item">
+                    <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069&auto=format&fit=crop" alt="Event">
+                    <div class="booking-info">
+                        <h3>Private Rooftop Party</h3>
+                        <span class="date"><i class="fa-regular fa-calendar"></i> Oct 24, 2026</span>
+                        <span class="service-type">Service: Full Catering & DJ</span>
+                    </div>
+                    <div class="booking-status">
+                        <span class="status-badge confirmed">Confirmed</span>
+                        <button class="action-btn"><a href="../Privet-Parties/privet_page.html">View Details</a></button>
+                    </div>
+                </div>
+
+                <div class="booking-item">
+                    <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=2012&auto=format&fit=crop" alt="Event">
+                    <div class="booking-info">
+                        <h3>Tech Education Summit</h3>
+                        <span class="date"><i class="fa-regular fa-calendar"></i> Nov 12, 2026</span>
+                        <span class="service-type">Service: Venue & Speaker Setup</span>
+                    </div>
+                    <div class="booking-status">
+                        <span class="status-badge pending">Pending</span>
+                        <button class="action-btn outline">Track Status</button>
+                    </div>
+                </div>
+
+                 <div class="booking-item">
+                    <img src="https://images.unsplash.com/photo-1530103043960-ef38714abb15?q=80&w=2069&auto=format&fit=crop" alt="Event">
+                    <div class="booking-info">
+                        <h3>Birthday Bash</h3>
+                        <span class="date"><i class="fa-regular fa-calendar"></i> Dec 05, 2026</span>
+                        <span class="service-type">Service: Decoration Only</span>
+                    </div>
+                    <div class="booking-status">
+                        <span class="status-badge completed">Completed</span>
+                        <button class="action-btn outline">Invoice</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="profile-sidebar">
+                <div class="profile-card">
+                    <div class="profile-img">
+                        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=1780&auto=format&fit=crop" alt="User">
+                        <button class="edit-icon"><i class="fa-solid fa-pen"></i></button>
+                        <input type="file" id="profileImageUpload" accept="image/*" style="display:none;" />
+                    </div>
+                    <h3>Rahul Sharma</h3>
+                    <p>rahul.sharma@email.com</p>
+                    <p>+91 98765 43210</p>
+                    <hr>
+                    <div class="profile-actions">
+                        <a href="#"><i class="fa-solid fa-gear"></i> Edit Profile</a>
+                        <a href="#"><i class="fa-solid fa-circle-question"></i> Help Center</a>
+                    </div>
+                </div>
+
+                <div class="notifications-card">
+                    <h3>Recent Activity</h3>
+                    <ul class="activity-list">
+                        <li><span class="dot blue"></span> Booking confirmed for Rooftop Party.</li>
+                        <li><span class="dot orange"></span> Payment pending for Tech Summit.</li>
+                        <li><span class="dot green"></span> Profile updated successfully.</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+<!-- Footer -->
+  <footer>
+    <div class="footer-col">
+        <h4 class="act"><i class="fa-solid fa-location-dot"></i> Address</h4>
+        <p>
+            <b>CMR College</b><br>  
+            Medchal District<br>
+            Pin-code: 501401<br>
+            Telangana, India
+        </p>
+        <a href="https://maps.google.com" target="_blank" class="map-link">
+            Get Directions <i class="fa-solid fa-arrow-right"></i>
+        </a>
+    </div>
+
+    <div class="footer-col end">
+        <h4 class="act">Explore</h4>
+        <ul class="footer-links">
+            <li><a href="../Services/services_page.html">Our Services</a></li>
+            <li><a href="../Gallery/gallery_page.html">Event Gallery</a></li>
+            <li><a href="../About/about_page.html">About Us</a></li>
+            <li><a href="../Contact/contact_page.html">Contact Us</a></li>
+        </ul>
+    </div>
+
+    <div class="footer-col end">
+        <h4 class="act">Contact</h4>
+        <p><i class="fa-solid fa-phone"></i> 09343489432</p>
+        <p><i class="fa-brands fa-whatsapp"></i> +91 9999999999</p>
+        <p><i class="fa-solid fa-envelope"></i> info@eventnest.com</p>
+        
+        <div class="legal-links">
+            <a href="#">Privacy Policy</a> | <a href="#">Terms</a>
+        </div>
+    </div>
+
+    <div class="footer-col" id="last">
+        <h4 class="act">Follow Us</h4>
+        <div class="social-icons">
+            <a href="www.facebook.com"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="www.linkedin.com"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="www.github.com"><i class="fa-brands fa-github"></i></a>
+            <a href="www.instagram.com"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+        
+        <p class="copyright">©2035 by Event Nest. <br> Powered and secured by FireWall</p>
+        
+        <button id="down">
+            <a href="../Services/services_page.html" id="no">BOOK NOW</a>
+        </button>
+    </div>
+</footer>
+
+    <script src="../JavaScript/sigup_script.js"></script>
+    <script src="../JavaScript/user_script.js"></script>
+</body>
+</html>

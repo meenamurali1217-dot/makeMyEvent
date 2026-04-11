@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>EventVendorHub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+<link rel="stylesheet" href="../CSS/events_vendors_style.css">
+</head>
+<body>
+
+<header>
+  <a class="logo" href="#"><div class="logo-mark"><i class="fa-solid fa-star"></i></div><div class="logo-text">Event<span>Vendor</span>Hub</div></a>
+  <div class="header-right">
+    <div class="tagline">Discover top vendors &amp; exclusive packages</div>
+    <button class="my-requests-btn" id="myRequestsBtn"><i class="fa-solid fa-clipboard-list"></i> My Requests <span class="req-badge" id="reqBadge">0</span></button>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow"><i class="fa-solid fa-shield-halved"></i>&nbsp; Curated &amp; Verified Vendors</div>
+    <h1>Plan Your <em>Perfect</em><br/>Event, Effortlessly</h1>
+    <p class="hero-sub">Browse trusted vendors across every event type — compare packages, select services, and customise your event.</p>
+  </div>
+</div>
+
+<div class="services-section">
+  <h2 class="services-heading">Our <span>Services</span></h2>
+  <p class="services-sub">Choose from our wide range of curated event categories</p>
+  <div class="services-grid" id="servicesGrid"></div>
+</div>
+
+<!-- MODE TOGGLE -->
+<div class="mode-toggle-bar">
+  <div class="mode-toggle-inner">
+    <button class="mode-btn active" id="modePackages" onclick="switchMode('packages')"><i class="fa-solid fa-layer-group"></i> Full Packages</button>
+    <button class="mode-btn" id="modeIndividual" onclick="switchMode('individual')"><i class="fa-solid fa-puzzle-piece"></i> Individual Services</button>
+  </div>
+</div>
+
+<div class="cat-bar" id="catBar"></div>
+<div class="main">
+  <!-- INDIVIDUAL SERVICES — PROVIDER GRID -->
+  <div id="individualView" style="display:none;">
+    <div class="section-top">
+      <div>
+        <div class="section-heading" id="indHeading"></div>
+        <div class="section-meta" id="indMeta"></div>
+      </div>
+    </div>
+    <div class="svc-type-bar" id="svcTypeBar"></div>
+    <div class="prov-card-wrap" id="indCards"></div>
+  </div>
+
+  <!-- INDIVIDUAL SERVICES — PROVIDER DETAIL (mirrors pkgView) -->
+  <div id="indDetailView">
+    <div class="ind-detail-topbar">
+      <button class="back-btn" id="indBackBtn"><i class="fa-solid fa-arrow-left"></i> Back</button>
+      <div>
+        <div class="ind-provider-name" id="indProviderName"></div>
+        <div class="ind-provider-meta" id="indProviderMeta"></div>
+        <div class="ind-provider-loc" id="indProviderLoc"></div>
+      </div>
+    </div>
+    <div class="pkg-table-wrap">
+      <table class="ind-tbl">
+        <thead><tr>
+          <th><i class="fa-solid fa-puzzle-piece"></i>&nbsp; Service Item</th>
+          <th><i class="fa-solid fa-list-check"></i>&nbsp; What's Included</th>
+          <th><i class="fa-solid fa-pen-ruler"></i>&nbsp; Booking &amp; Customise</th>
+        </tr></thead>
+        <tbody id="indTableBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div id="vendorGrid">
+    <div class="section-top">
+      <div><div class="section-heading" id="sectionHeading"></div><div class="section-meta" id="sectionMeta"></div></div>
+    </div>
+    <div id="vendorCards"></div>
+  </div>
+  <div id="pkgView">
+    <div class="pkg-topbar">
+      <button class="back-btn" id="backBtn"><i class="fa-solid fa-arrow-left"></i> Back</button>
+      <div>
+        <div class="pkg-vendor-name" id="pkgVendorName"></div>
+        <div class="pkg-vendor-meta" id="pkgVendorMeta"></div>
+        <div class="pkg-location-bar" id="pkgVendorLocation"></div>
+      </div>
+    </div>
+    <div class="pkg-table-wrap">
+      <table class="pkg-tbl">
+        <thead><tr>
+          <th><i class="fa-regular fa-image"></i>&nbsp; Package</th>
+          <th><i class="fa-solid fa-list-check"></i>&nbsp; What's Included</th>
+          <th><i class="fa-regular fa-comment-dots"></i>&nbsp; Reviews &amp; Booking</th>
+        </tr></thead>
+        <tbody id="pkgTableBody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<footer><i class="fa-solid fa-star" style="color:var(--teal);margin-right:6px;"></i>&copy; 2025 <strong>EventVendorHub</strong> &mdash; All rights reserved</footer>
+
+<!-- BOOKING MODAL -->
+<div class="modal-overlay" id="bookingOverlay">
+  <div class="modal-box">
+    <div id="bookingForm">
+      <div class="modal-head">
+        <div><div class="modal-pkg-label" id="bLabel"></div><div class="modal-pkg-name" id="bName"></div><div class="modal-vendor-sub" id="bSub"></div></div>
+        <button class="modal-close" id="modalCloseBtn"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body">
+        <div class="svc-section-title"><i class="fa-solid fa-sliders"></i>&nbsp; Select the services you need</div>
+        <table class="svc-table">
+          <thead><tr><th><i class="fa-solid fa-square-check"></i>&nbsp; Service</th><th>Price</th></tr></thead>
+          <tbody id="svcTableBody"></tbody>
+        </table>
+        <div class="date-section">
+          <div class="svc-section-title"><i class="fa-solid fa-calendar-days"></i>&nbsp; Event Date &amp; Time</div>
+          <div class="date-grid">
+            <div class="date-field">
+              <label for="eventDate"><i class="fa-regular fa-calendar"></i> Event Date <span style="color:var(--maroon-lt);margin-left:2px;">*</span></label>
+              <input type="date" class="date-input" id="eventDate" onchange="validateDate()"/>
+              <span class="date-hint err-msg" id="dateErrMsg"><i class="fa-solid fa-triangle-exclamation"></i> Please select a future date</span>
+              <span class="date-hint" id="dateHint"><i class="fa-regular fa-circle-question"></i> Must be at least 7 days from today</span>
+            </div>
+            <div class="date-field">
+              <label for="eventTime"><i class="fa-regular fa-clock"></i> Preferred Start Time</label>
+              <input type="time" class="date-input" id="eventTime"/>
+              <span class="date-hint"><i class="fa-regular fa-circle-question"></i> Approximate start time is fine</span>
+            </div>
+          </div>
+        </div>
+        <div class="custom-section">
+          <div class="svc-section-title"><i class="fa-solid fa-pen-nib"></i>&nbsp; Customise Your Event <span style="font-size:10px;color:var(--ink3);text-transform:none;letter-spacing:0;font-weight:400;">(optional)</span></div>
+          <textarea class="custom-textarea" id="customNote" placeholder="Describe any special requirements, themes, or customisations — e.g. 'I want a royal Rajasthani theme', 'Dietary restrictions for 30 guests', 'Surprise element for the birthday person'..."></textarea>
+        </div>
+        <div class="estimate-bar">
+          <div>
+            <div class="est-label"><i class="fa-solid fa-calculator"></i>&nbsp; Estimated Total</div>
+            <div class="est-amount" id="estAmount">&#8377;0</div>
+            <div class="est-note" id="estNote">Select services above to build your estimate</div>
+          </div>
+          <div class="est-btns">
+            <button class="cancel-btn" id="cancelBtn"><i class="fa-solid fa-xmark"></i> Cancel</button>
+            <button class="submit-btn" id="submitBtn" disabled><i class="fa-solid fa-paper-plane"></i> Send Request</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="success-screen" id="successScreen">
+      <div class="success-icon"><i class="fa-solid fa-check"></i></div>
+      <div class="success-title">Request Sent!</div>
+      <p class="success-msg">Your customisation request has been submitted successfully. Track its status in <strong>My Requests</strong>. We will contact you soon to confirm all the details.</p>
+      <div class="success-summary" id="successSummary"></div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:8px;">
+        <button class="close-success-btn alt" id="viewRequestsBtn"><i class="fa-solid fa-clipboard-list"></i> Track My Request</button>
+        <button class="close-success-btn" id="closeSuccessBtn"><i class="fa-solid fa-arrow-left"></i> Back to Packages</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MY REQUESTS PANEL -->
+<div class="requests-overlay" id="requestsOverlay"></div>
+<div class="requests-panel" id="requestsPanel">
+  <div class="rp-head">
+    <div>
+      <div class="rp-title"><i class="fa-solid fa-clipboard-list" style="color:var(--teal-lt);margin-right:8px;font-size:18px;"></i>My Requests</div>
+      <div class="rp-sub">Track your booking &amp; customisation requests</div>
+    </div>
+    <button class="rp-close" id="rpCloseBtn"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+  <div class="rp-body" id="rpBody"></div>
+</div>
+
+</body>
+<script src="../JavaScript/events_vendors_logic.js"></script>
+</html>

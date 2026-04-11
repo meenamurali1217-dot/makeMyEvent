@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Services | Vendor Panel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../CSS_pages/services.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <button class="menu-btn" onclick="openSidebar()">☰</button>
+    <div id="overlay" onclick="closeSidebar()"></div>
+
+    <div id="sidebar">
+      <div class="sidebar-header">
+        <div class="user-info">
+          <div class="user-icon" style="background: #27ae60; color: white;">
+            <i class="fa-solid fa-store"></i>
+          </div>
+          <div class="user-text">
+            <strong>Elite Decorators</strong> <br>
+            <span>Verified Vendor</span>
+          </div>
+        </div>
+        <span class="close-btn" onclick="closeSidebar()">✖</span>
+      </div>
+
+     <div class="sidebar-content">
+        <h4>Business Center</h4>
+        <a href="../home_page/index.html"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+        <a href="./services.html" class="active-link"><i class="fa-solid fa-list"></i> My Services</a>
+        <a href="../booking_page/booking.html"><i class="fa-solid fa-calendar-check"></i> Bookings <span class="badge warning" style="margin-left:auto;">3</span></a>
+        <a href="../messages_page/messages.html"><i class="fa-solid fa-message"></i> Messages</a>
+
+        <h4>Finance & Growth</h4>
+        <a href="../earnings_page/earnings.html"><i class="fa-solid fa-wallet"></i> Earnings & Payouts</a>
+        <a href="../Reviews_page/reviews.html"><i class="fa-solid fa-star"></i> Reviews</a> 
+        <h4>Account</h4>
+        <a href="../profilesettings_page/profilesettings.html"><i class="fa-solid fa-gear"></i> Profile Settings</a>
+        <a href="../../event-nest/Signup/signup.html"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+      </div>
+    </div>
+    
+    <div class="logo">
+        <img src="https://eventnestcarmel.com/wp-content/uploads/2025/05/logo-black-1536x648.png" alt="Logo" width="150px">
+    </div>
+
+    <div class="search-box">
+      <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="Search services...">
+    </div>
+
+    <nav class="desktop-nav">
+      <a href="../home_page/index.html" class="option" >Dashboard</a>
+      <a href="./services.html" class="option" style="color:#2196f3;">My Services</a>
+      <a href="../earnings_page/earnings.html" class="option">Earnings</a>
+      <a href="../profile_page/profile.html" class="option">Profile</a>
+    </nav>
+    <div class="auth">
+      <button class="register" style="background-color: #333;"><i class="fa-solid fa-briefcase"></i> Vendor Portal</button>
+    </div>
+  </header>
+
+  <main class="admin-container">
+      
+      <div class="admin-hero-enhanced">
+          <div class="hero-text">
+              <h1>Service Portfolio</h1>
+              <p>Showcase your best work. Manage pricing, descriptions, and availability.</p>
+              <div class="hero-badges">
+                  <span><i class="fa-solid fa-layer-group"></i> Total Services: <span id="totalCount">0</span></span>
+                  <span><i class="fa-solid fa-eye"></i> Profile Views: 1.2k</span>
+              </div>
+          </div>
+          <div class="hero-visual">
+              <button class="glass-btn primary" onclick="openModal()"><i class="fa-solid fa-plus"></i> Add New Service</button>
+          </div>
+      </div>
+
+      <div class="filter-bar">
+          <select class="minimal-select" onchange="filterServices(this.value)">
+              <option value="all">All Categories</option>
+              <option value="Decoration">Decoration</option>
+              <option value="Catering">Catering</option>
+              <option value="Photography">Photography</option>
+              <option value="Entertainment">Entertainment</option>
+          </select>
+          <div class="view-toggles">
+              <button class="icon-btn-plain active"><i class="fa-solid fa-grid-2"></i></button>
+              <button class="icon-btn-plain"><i class="fa-solid fa-list"></i></button>
+          </div>
+      </div>
+
+      <div class="services-grid" id="servicesContainer">
+          </div>
+
+  </main>
+
+  <div id="serviceModal" class="modal-overlay">
+      <div class="modal-card">
+          <div class="modal-header">
+              <h2>Add New Service</h2>
+              <span class="close-modal" onclick="closeModal()">✖</span>
+          </div>
+          <form class="modal-form" onsubmit="addService(event)">
+              <div class="form-group">
+                  <label>Service Name</label>
+                  <input type="text" id="sName" placeholder="e.g. Premium Wedding Catering" required>
+              </div>
+              <div class="form-row">
+                  <div class="form-group">
+                      <label>Category</label>
+                      <select id="sCategory">
+                          <option>Decoration</option>
+                          <option>Catering</option>
+                          <option>Photography</option>
+                          <option>Music/DJ</option>
+                          <option>Makeup Artist</option>
+                          <option>Transportation</option>
+                      </select>
+                  </div>
+                  <div class="form-group">
+                      <label>Price (₹)</label>
+                      <input type="text" id="sPrice" placeholder="e.g. 1,50,000" required>
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label>Description</label>
+                  <textarea id="sDesc" rows="3" placeholder="Describe the service inclusions..."></textarea>
+              </div>
+              <div class="form-group">
+                  <label>Image URL</label>
+                  <input type="text" id="sImg" placeholder="https://images.unsplash.com/photo-...">
+              </div>
+              <button type="submit" class="primary-btn full-width">Publish Service</button>
+          </form>
+      </div>
+  </div>
+
+ <footer>
+        <div class="footer-col">
+            CMR college <br>  
+            Kandlakoya<br>
+            Medchel Telangana
+        </div>
+        <div class="footer-col end">
+            Tel: 08965436 <br>
+            Ph.no:91 8976564390<br>
+            info@eventnest.com
+        </div>
+        <div class="footer-col end">
+            ©2035 by EventNest. <br>
+            Powered and secured by FireWall
+        </div>
+        <div class="footer-col" id="last">
+            <div class="social-icons">
+                <a href="https://www.facebook.com"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.linkedin.com"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.instagram.com"><i class="fa-brands fa-instagram"></i></a>
+            </div> 
+            <br>
+            <button id="down"><a href="../booking_page/booking.html" id="no">Bookings</a></button>
+        </div>
+    </footer>
+
+  <script src="../JS_pages/services.js"></script>
+</body>
+</html>
