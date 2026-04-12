@@ -5,6 +5,19 @@
 body { background: #f0f4f8; color: #334155; line-height: 1.6; overflow-x: hidden; }
 a { text-decoration: none; } ul { list-style: none; }
 
+
+.image {
+ border-radius: 5px;
+ width: 30px;
+ margin: 3px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+
 /* =========================================
    MASTER NAVBAR & SIDEBAR (UNCHANGED)
    ========================================= */

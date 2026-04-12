@@ -206,6 +206,15 @@ nav a:hover {
   color: white;
 }
 
+.head_and_hero {
+  background: url(https://img.freepik.com/premium-photo/baby-pastel-solid-background_87720-164711.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* 🔥 PARALLAX */
+}
+
+
 /* -------------Button Animation---------- */
 button, .login {
   transition: all 0.3s ease;

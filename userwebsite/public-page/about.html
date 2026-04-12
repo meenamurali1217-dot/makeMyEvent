@@ -9,6 +9,7 @@
 </head>
 <body>
 
+  <div class="head_and_hero">
     <header class="navbar">
         <div class="logo">
           make
@@ -26,12 +27,9 @@
         </div>
 
         <nav>
-          <a href="../index.html" class="option">Home</a>
+          <a href="../../index.html" class="option">Home</a>
           <a href="./gallery_page.html" class="option"
             >Gallery</a
-          >
-          <a href="./contact.html" class="option"
-            >Contact</a
           >
           <a href=".#" class="option"
             >About</a
@@ -43,20 +41,18 @@
       <span>Wishlist</span>
     </div>
     
-        
-  <!-- User Menu -->
-  <div class="user-menu">
-    <div class="user-btn" onclick="toggleUserMenu()">
-      <img src="../images/meena.png" alt="User Avatar" class="avatar" / >
-      <span>Meena Murali</span> &#9660;
-    </div>
-
-    <div id="userDropdown" class="user-dropdown">
-      <a href="../templates/user_page.html"><p>👤 My Profile</p></a>
-      <p onclick="changePassword()">🔑 Change Password</p>
-      <p onclick="logout()">⏻ Logout</p>
-    </div>
-  </div>
+        <div class="auth">
+          <a href="../after_login_pages/signup.html"
+            ><button class="login">
+              <img
+                src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjV6bMs6hvIDSG-IbeZq1OqdoH7lnUJKXFSODhERwf7D3M6fuuJRadljjktdpmvGblYCSpud5ZO-Bl8Bwl5_yeKhIRPAmq4LMLicA63dDh274-FGREPjE9fx321NisbWKQwHgCreijli80fBJtCntA13YtbDqTM3uQceATgq2xVuoqsKg3OzfEuNxv-aOM/s1600/Screenshot%202026-03-27%20122136%203.png"
+                alt=""
+                class="image2"
+              />
+              Login or create account
+            </button></a
+          >
+        </div>
       </header>
 
   <main class="content">
@@ -68,6 +64,7 @@
       </div>
       
     </section>
+    </div>
 
     <section class="who" id="who-we-are">
       <div class="who-text">
@@ -234,7 +231,7 @@
     <section class="cta">
       <div class="cta-inner">
         <h2>Ready to plan your next event with us?</h2>
-        <button><a href="../Services/services_page.html">Plan Your Event</a></button>
+        <button><a href="../after_login_pages/signup.html">Plan Your Event</a></button>
       </div>
     </section>
 
@@ -322,7 +319,7 @@
         <h4 class="act">Explore</h4>
         <ul class="footer-links">
           <li>
-            <a href="./Packege-vendor-page-1.html"
+            <a href="../after_login_pages/signup.html"
               >Our Services</a
             >
           </li>
@@ -332,9 +329,6 @@
             >
           </li>
           <li><a href="#">About Us</a></li>
-          <li>
-            <a href="./contact.html">Contact Us</a>
-          </li>
         </ul>
       </div>
 
@@ -372,12 +366,11 @@
         </p>
 
         <button id="down">
-          <a href="./event-nest/Signup/signup.html" id="no">BOOK NOW</a>
+          <a href="../after_login_pages/signup.html" id="no">BOOK NOW</a>
         </button>
       </div>
     </footer>
 
-  <script src="../JavaScript/sigup_script.js"></script>
   <script src="../JavaScript/about_logic.js"></script>
 </body>
 </html>

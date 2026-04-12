@@ -11,13 +11,65 @@
 </head>
 <body>
 
-<header>
+<header class="navbar">
+<div class="logoName">
+          make
+          <img
+            src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEidvekcxWaVkfJFq89IxgFYyrdwvk85jeyU-wZ1qDwYIyH3048fsmL_qB0su74UD_3Vk4Hz9rNBa0R2wh72H7rWTtHbdPZGxlXH5RKAe-NZx95eBnhkqeTkyZDyyw8mGRNyCIQ6nJUgyLNfRVpYY5BCtsWj1jjUa8H_T_th4s34RS1JjeBifNBnKuFh6Ww/s320/Screenshot%202026-03-27%20115604.png"
+            alt=""
+            class="image"
+          />
+          event
+        </div>
+
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" placeholder="Search events or Services..." />
+        </div>
+
+        <nav>
+          <a href="#" class="option">Home</a>
+          <a href="./events_vendors.html" class="option"
+            >Services</a
+          >
+          <a href="./gallery_page.html" class="option"
+            >Gallery</a
+          >
+          <a href="./about.html" class="option"
+            >About</a
+          >
+        </nav>
+
+        <div class="icon-btn">
+      ❤️
+      <span>Wishlist</span>
+    </div>
+    
+       
+  <!-- User Menu -->
+  <div class="user-menu">
+    <div class="user-btn" onclick="toggleUserMenu()">
+      <img src="../images/meena.png" alt="User Avatar" class="avatar" / >
+      <span>Meena Murali</span> &#9660;
+    </div>
+
+    <div id="userDropdown" class="user-dropdown">
+      <a href="../templates/user_page.html"><p>👤 My Profile</p></a>
+      <p onclick="changePassword()">🔑 Change Password</p>
+      <p onclick="logout()">⏻ Logout</p>
+    </div>
+  </div>
+</header>
+
+
+ <div class="head_and_hero">
+  <div class="tracker">
   <a class="logo" href="#"><div class="logo-mark"><i class="fa-solid fa-star"></i></div><div class="logo-text">Event<span>Vendor</span>Hub</div></a>
   <div class="header-right">
     <div class="tagline">Discover top vendors &amp; exclusive packages</div>
     <button class="my-requests-btn" id="myRequestsBtn"><i class="fa-solid fa-clipboard-list"></i> My Requests <span class="req-badge" id="reqBadge">0</span></button>
   </div>
-</header>
+  </div>
 
 <div class="hero">
   <div class="hero-inner">
@@ -25,6 +77,7 @@
     <h1>Plan Your <em>Perfect</em><br/>Event, Effortlessly</h1>
     <p class="hero-sub">Browse trusted vendors across every event type — compare packages, select services, and customise your event.</p>
   </div>
+</div>
 </div>
 
 <div class="services-section">
@@ -105,7 +158,77 @@
   </div>
 </div>
 
-<footer><i class="fa-solid fa-star" style="color:var(--teal);margin-right:6px;"></i>&copy; 2025 <strong>EventVendorHub</strong> &mdash; All rights reserved</footer>
+
+    <!-- Footer -->
+    <footer class="hidden">
+      <div class="footer-col">
+        <h4 class="act"><i class="fa-solid fa-location-dot"></i> Address</h4>
+        <p>
+          <b>CMR College</b><br />
+          Medchal District<br />
+          Pin-code: 501401<br />
+          Telangana, India
+        </p>
+        <a href="https://maps.google.com" target="_blank" class="map-link">
+          Get Directions <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <div class="footer-col end">
+        <h4 class="act">Explore</h4>
+        <ul class="footer-links">
+          <li>
+            <a href="./events_vendors.html"
+              >Our Services</a
+            >
+          </li>
+          <li>
+            <a href="./gallery_page.html"
+              >Event Gallery</a
+            >
+          </li>
+          <li><a href="./about.html">About Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col end">
+        <h4 class="act">Contact</h4>
+        <p><i class="fa-solid fa-phone"></i> 09343489432</p>
+        <p><i class="fa-brands fa-whatsapp"></i> +91 9999999999</p>
+        <p><i class="fa-solid fa-envelope"></i> info@eventnest.com</p>
+
+        <div class="legal-links">
+          <a href="#">Privacy Policy</a> | <a href="#">Terms</a>
+        </div>
+      </div>
+
+      <div class="footer-col" id="last">
+        <h4 class="act">Follow Us</h4>
+        <div class="social-icons">
+          <a href="https://www.facebook.com"
+            ><i class="fa-brands fa-facebook-f"></i
+          ></a>
+          <a href="https://www.linkedin.com"
+            ><i class="fa-brands fa-linkedin-in"></i
+          ></a>
+          <a href="https://www.github.com"
+            ><i class="fa-brands fa-github"></i
+          ></a>
+          <a href="https://www.instagram.com"
+            ><i class="fa-brands fa-instagram"></i
+          ></a>
+        </div>
+
+        <p class="copyright">
+          ©2035 by Event Nest. <br />
+          Powered and secured by FireWall
+        </p>
+
+        <button id="down">
+          <a href="./events_vendors.html" id="no">BOOK NOW</a>
+        </button>
+      </div>
+    </footer>
 
 <!-- BOOKING MODAL -->
 <div class="modal-overlay" id="bookingOverlay">
@@ -181,5 +304,6 @@
 </div>
 
 </body>
+<script src="../JavaScript/sigup_script.js"></script>
 <script src="../JavaScript/events_vendors_logic.js"></script>
 </html>

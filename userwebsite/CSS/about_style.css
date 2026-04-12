@@ -90,7 +90,6 @@ main.content {
   align-items: center;
   padding: 15px 20px;
   background: transparent;
-  /* box-shadow: 0 2px 8px rgba(0,0,0,0.1); */
 }
 
 
@@ -213,7 +212,7 @@ nav a:hover {
 }
 
 .head_and_hero {
-  background: url(https://img.freepik.com/premium-photo/baby-pastel-solid-background_87720-164711.jpg);
+  background: url(https://static.vecteezy.com/system/resources/previews/038/364/874/large_2x/cyan-blue-wave-curve-abstract-background-free-png.png);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -229,7 +228,6 @@ nav a:hover {
   justify-content: center;
   text-align: center;
   padding: 100px 20px;
-  background: linear-gradient(135deg, rgba(79, 70, 229, 0.05) 0%, rgba(14, 165, 233, 0.05) 100%);
   position: relative;
   overflow: hidden;
 }
