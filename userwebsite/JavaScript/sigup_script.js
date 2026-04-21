@@ -337,7 +337,7 @@ function initSignupLoginForm() {
             alert('Registration successful! Redirecting to your dashboard...');
 
             setTimeout(() => {
-                window.location.href = '../templates/home.html';
+                window.location.href = '../userwebsite/after_login_pages/home.html';
             }, 600);
         });
     }
