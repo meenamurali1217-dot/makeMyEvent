@@ -53,21 +53,21 @@ function getAccount(email, password) {
             password: '123@Nvinay',
             role: 'vendor',
             name: 'Vinay Kumar',
-            redirect: '../vendorewebsite/HTML_pages/vendor_dashboard.html'
+            redirect: '../vendorewebsite/vendor_pages/vendor_dashboard.html'
         },
         {
             email: 'shanmukh1207@gmail.com',
             password: '1207@Shanmukh',
             role: 'user',
             name: 'Shanmukh',
-            redirect: '../templates/home.html'
+            redirect: '../userwebsite/after_login_pages/home.html'
         },
         {
             email: 'meena.murali1217@gmail.com',
             password: '1217@Mkvm',
             role: 'admin',
             name: 'Admin',
-            redirect: '../adminwebsite/admin_layout/index.html'
+            redirect: '../adminwebsite/admin_pages/index.html'
         }
     ];
 
