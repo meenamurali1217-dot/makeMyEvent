@@ -175,7 +175,7 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-b);font-size:1
 .header-right{display:flex;align-items:center;gap:16px;}
 .tagline{font-size:13px;color:rgba(255,255,255,.6);}
 @media(max-width:620px){.tagline{display:none;}}
-.my-requests-btn{display:flex;align-items:center;gap:8px;padding:9px 18px;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.25);border-radius:40px;color:black;font-family:var(--font-b);font-size:13px;font-weight:500;cursor:pointer;transition:all .2s;position:relative;}
+.my-requests-btn{display:flex;align-items:center;gap:8px;padding:9px 18px;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.25);border-radius:40px;color:#fff;font-family:var(--font-b);font-size:13px;font-weight:500;cursor:pointer;transition:all .2s;position:relative;}
 .my-requests-btn:hover{background:rgba(255,255,255,.22);}
 .req-badge{position:absolute;top:-6px;right:-6px;background:var(--pending);color:#fff;border-radius:50%;width:18px;height:18px;font-size:10px;font-weight:700;display:none;align-items:center;justify-content:center;}
 .hero{position:relative;z-index:1;padding:52px 40px 44px;overflow:hidden;}

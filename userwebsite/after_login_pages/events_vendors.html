@@ -28,7 +28,7 @@
         </div>
 
         <nav>
-          <a href="#" class="option">Home</a>
+          <a href="./home.html" class="option">Home</a>
           <a href="./events_vendors.html" class="option"
             >Services</a
           >
@@ -40,9 +40,9 @@
           >
         </nav>
 
-        <div class="icon-btn">
+        <div class="icon-btn" onclick="openWishlistModal()">
       ❤️
-      <span>Wishlist</span>
+      <span>Wishlist <span id="wishlist-count" style="display:none;"></span></span>
     </div>
     
        
@@ -302,6 +302,19 @@
   </div>
   <div class="rp-body" id="rpBody"></div>
 </div>
+
+<!-- WISHLIST MODAL -->
+<!-- <div class="modal-overlay" id="wishlistOverlay" style="display:none;">
+  <div class="modal-box" style="max-height:80vh;overflow-y:auto;">
+    <div class="modal-head">
+      <div><div class="modal-pkg-label" style="color:var(--teal);">❤️ MY WISHLIST</div><div class="modal-pkg-name" id="wishlistTitle">Saved Vendors</div></div>
+      <button class="modal-close" onclick="closeWishlistModal()"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="modal-body" id="wishlistBody"> -->
+      <!-- Wishlist items will be rendered here -->
+    <!-- </div>
+  </div>
+</div> -->
 
 </body>
 <script src="../JavaScript/sigup_script.js"></script>

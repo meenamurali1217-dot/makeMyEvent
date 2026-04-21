@@ -689,7 +689,14 @@ function renderVendors(){
   if(!list.length){document.getElementById('vendorCards').innerHTML=`<div class="empty"><div class="empty-icon"><i class="fa-solid fa-clock"></i></div><h3>Coming Soon</h3><p>We are onboarding vendors for this category.</p></div>`;return;}
   document.getElementById('vendorCards').innerHTML=list.map((v,i)=>`
     <div class="vendor-card" data-id="${v.id}" style="animation-delay:${i*55}ms">
-      <div class="vc-img-wrap"><img class="vc-img" src="${v.img}" alt="${v.name}" loading="lazy"/><div class="vc-badge">${v.badge}</div><div class="vc-pkg-count"><i class="fa-solid fa-layer-group" style="font-size:10px;margin-right:4px;"></i>${v.packages.length} package${v.packages.length!==1?'s':''}</div></div>
+      <div class="vc-img-wrap">
+        <img class="vc-img" src="${v.img}" alt="${v.name}" loading="lazy"/>
+        <div class="vc-badge">${v.badge}</div>
+        <div class="vc-pkg-count"><i class="fa-solid fa-layer-group" style="font-size:10px;margin-right:4px;"></i>${v.packages.length} package${v.packages.length!==1?'s':''}</div>
+        <button class="vc-wishlist-btn" data-wishlist-heart data-item-id="vendor_${v.id}" onclick="event.stopPropagation();addToWishlist('vendor_${v.id}',{type:'package',vendorId:'${v.id}',vendorName:'${v.name}',packageCount:${v.packages.length}})" style="position:absolute;top:10px;right:10px;background:rgba(255,255,255,0.9);border:none;width:35px;height:35px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;">
+          ${isInWishlist('vendor_'+v.id)?'<i class="fa-solid fa-heart" style="color:var(--teal);"></i>':'<i class="fa-regular fa-heart"></i>'}
+        </button>
+      </div>
       <div class="vc-body"><div class="vc-cat">${cat.name}</div><div class="vc-name">${v.name}</div><div class="vc-desc">${v.description}</div>
       <div class="vc-rating"><span class="stars">${fmtStars(v.rating)}</span><span class="rating-num">${v.rating}</span><span style="color:var(--ink3);font-size:12px;">(${v.reviews})</span></div>
       <div class="vc-location"><i class="fa-solid fa-location-dot"></i>${v.location}</div>
@@ -1268,13 +1275,17 @@ function renderIndividualCards(){
   container.innerHTML=list.map((s,i)=>{
     const typeName=serviceTypes.find(t=>t.id===s.type)?.name||s.type;
     const typeIcon=serviceTypes.find(t=>t.id===s.type)?.icon||'fa-star';
-    return `<div class="prov-card" data-svcid="${s.id}" style="animation-delay:${i*50}ms;">
+    const wishlistId='service_'+s.id;
+    return `<div class="prov-card" data-svcid="${s.id}" style="animation-delay:${i*50}ms;position:relative;">
       <div class="prov-img-wrap">
         <img src="${s.img}" alt="${s.name}" loading="lazy"/>
         <div class="prov-type-badge" style="background:${s.color||'var(--teal)'};">
           <i class="fa-solid ${typeIcon}" style="margin-right:5px;"></i>${typeName}
         </div>
         <div class="prov-item-count"><i class="fa-solid fa-list" style="font-size:10px;margin-right:4px;"></i>${s.items.length} service${s.items.length!==1?'s':''}</div>
+        <button class="prov-wishlist-btn" data-wishlist-heart data-item-id="${wishlistId}" onclick="event.stopPropagation();addToWishlist('${wishlistId}',{type:'individual',serviceId:'${s.id}',serviceName:'${s.name}',serviceType:'${s.type}'})" style="position:absolute;top:10px;right:10px;background:rgba(255,255,255,0.9);border:none;width:35px;height:35px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;transition:all 0.2s ease;">
+          ${isInWishlist(wishlistId)?'<i class="fa-solid fa-heart" style="color:var(--teal);"></i>':'<i class="fa-regular fa-heart"></i>'}
+        </button>
       </div>
       <div class="prov-body">
         <div class="prov-type-label">${typeName}</div>
@@ -1447,7 +1458,202 @@ function handleSubmit(){
   }
 }
 
-renderServicesGrid();renderCats();renderVendors();updateReqBadge();
+// Load category from URL parameter
+function loadCategoryFromURL(){
+  const urlParams=new URLSearchParams(window.location.search);
+  const category=urlParams.get('category');
+  if(category&&eventCategories.find(c=>c.id===category)){
+    activeCat=category;
+    activeServiceType='all';
+    renderServicesGrid();renderCats();
+    document.getElementById('pkgView').style.display='none';
+    document.getElementById('vendorGrid').style.display='block';
+    renderVendors();
+    setTimeout(()=>{
+      document.getElementById('catBar').scrollIntoView({behavior:'smooth',block:'nearest'});
+      const ab=document.querySelector('.cat-btn.active');
+      if(ab)ab.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+    },100);
+  }
+}
+
+// Wait for DOM to be ready before initializing
+document.addEventListener('DOMContentLoaded', function(){
+  renderServicesGrid();renderCats();renderVendors();updateReqBadge();
+  loadCategoryFromURL();
+});
+
+/* ============================================================
+   WISHLIST MANAGEMENT
+   ============================================================ */
+let wishlistItems=[];
+try{wishlistItems=JSON.parse(localStorage.getItem('evh_wishlist')||'[]');}catch(e){wishlistItems=[];}
+
+function saveWishlist(){try{localStorage.setItem('evh_wishlist',JSON.stringify(wishlistItems));}catch(e){}}
+
+function addToWishlist(itemId,itemData){
+  if(!wishlistItems.find(w=>w.id===itemId)){
+    wishlistItems.push({id:itemId,...itemData});
+    saveWishlist();
+    updateWishlistUI();
+    showNotification('Added to wishlist! ❤️','success');
+  } else {
+    removeFromWishlist(itemId);
+  }
+}
+
+function removeFromWishlist(itemId){
+  const idx=wishlistItems.findIndex(w=>w.id===itemId);
+  if(idx!==-1){
+    wishlistItems.splice(idx,1);
+    saveWishlist();
+    updateWishlistUI();
+    showNotification('Removed from wishlist','info');
+  }
+}
+
+function isInWishlist(itemId){
+  return wishlistItems.some(w=>w.id===itemId);
+}
+
+function updateWishlistUI(){
+  const badge=document.getElementById('wishlist-count');
+  if(wishlistItems.length>0){
+    badge.style.display='inline';
+    badge.textContent=`(${wishlistItems.length})`;
+  } else {
+    badge.style.display='none';
+  }
+  // Update heart icons on cards
+  document.querySelectorAll('[data-wishlist-heart]').forEach(btn=>{
+    const itemId=btn.dataset.itemId;
+    if(isInWishlist(itemId)){
+      btn.classList.add('in-wishlist');
+      btn.innerHTML='<i class="fa-solid fa-heart"></i>';
+    } else {
+      btn.classList.remove('in-wishlist');
+      btn.innerHTML='<i class="fa-regular fa-heart"></i>';
+    }
+  });
+}
+
+function openWishlistModal(){
+  const overlay=document.getElementById('wishlistOverlay');
+  const body=document.getElementById('wishlistBody');
+  if(!wishlistItems.length){
+    body.innerHTML='<div style="text-align:center;padding:60px 20px;"><div style="font-size:48px;margin-bottom:20px;">❤️</div><h3>Your Wishlist is Empty</h3><p style="color:var(--ink3);margin-bottom:20px;">Add vendors to your wishlist to save them for later</p><button class="book-now-btn" onclick="closeWishlistModal();selectCategory(\'wedding\');" style="background:var(--teal);">Browse Vendors</button></div>';
+  } else {
+    body.innerHTML=`<div style="padding:20px;"><h4 style="margin-bottom:15px;"><i class="fa-solid fa-list"></i> ${wishlistItems.length} Item${wishlistItems.length!==1?'s':''} in Wishlist</h4>`+
+    wishlistItems.map(w=>{
+      let vendor,individual;
+      if(w.type==='package'){
+        vendor=vendors.find(v=>v.id===w.vendorId);
+        if(!vendor)return'';
+        return `<div style="background:#f9f9f9;padding:15px;margin:10px 0;border-radius:8px;border-left:4px solid var(--teal);">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:15px;">
+            <div style="flex:1;">
+              <div style="font-weight:600;color:var(--ink);margin-bottom:5px;">${vendor.name}</div>
+              <div style="color:var(--ink3);font-size:13px;margin-bottom:8px;"><i class="fa-solid fa-layer-group" style="margin-right:6px;color:var(--teal);"></i>${w.packageCount} package${w.packageCount!==1?'s':''}</div>
+              <div style="color:var(--ink3);font-size:13px;"><i class="fa-solid fa-star" style="color:gold;margin-right:6px;"></i>${vendor.rating} • ${vendor.location}</div>
+            </div>
+            <div style="text-align:right;">
+              <button class="book-now-btn" style="padding:8px 12px;font-size:12px;background:var(--teal);color:white;border:none;border-radius:4px;cursor:pointer;margin-bottom:5px;" onclick="removeFromWishlist('${w.id}');renderWishlistUI();"><i class="fa-solid fa-trash"></i> Remove</button>
+              <button class="book-now-btn" style="padding:8px 12px;font-size:12px;background:#50a0d0;color:white;border:none;border-radius:4px;cursor:pointer;display:block;" onclick="closeWishlistModal();openPackages('${w.vendorId}');"><i class="fa-solid fa-arrow-right"></i> View</button>
+            </div>
+          </div>
+        </div>`;
+      } else {
+        individual=individualServices.find(s=>s.id===w.serviceId);
+        if(!individual)return'';
+        return `<div style="background:#f9f9f9;padding:15px;margin:10px 0;border-radius:8px;border-left:4px solid var(--teal);">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:15px;">
+            <div style="flex:1;">
+              <div style="font-weight:600;color:var(--ink);margin-bottom:5px;">${individual.name}</div>
+              <div style="color:var(--ink3);font-size:13px;margin-bottom:8px;"><i class="fa-solid fa-tag" style="margin-right:6px;color:var(--teal);"></i>${w.serviceType}</div>
+              <div style="color:var(--ink3);font-size:13px;"><i class="fa-solid fa-star" style="color:gold;margin-right:6px;"></i>${individual.rating} • ${individual.location}</div>
+            </div>
+            <div style="text-align:right;">
+              <button class="book-now-btn" style="padding:8px 12px;font-size:12px;background:var(--teal);color:white;border:none;border-radius:4px;cursor:pointer;margin-bottom:5px;" onclick="removeFromWishlist('${w.id}');renderWishlistUI();"><i class="fa-solid fa-trash"></i> Remove</button>
+              <button class="book-now-btn" style="padding:8px 12px;font-size:12px;background:#50a0d0;color:white;border:none;border-radius:4px;cursor:pointer;display:block;" onclick="closeWishlistModal();openIndProvider('${w.serviceId}');"><i class="fa-solid fa-arrow-right"></i> View</button>
+            </div>
+          </div>
+        </div>`;
+      }
+    }).join('')+'</div>';
+  }
+  overlay.style.display='flex';
+  document.body.style.overflow='hidden';
+}
+
+function renderWishlistUI(){
+  const body=document.getElementById('wishlistBody');
+  if(!wishlistItems.length){
+    body.innerHTML='<div style="text-align:center;padding:60px 20px;"><div style="font-size:48px;margin-bottom:20px;">❤️</div><h3>Your Wishlist is Empty</h3><p style="color:var(--ink3);margin-bottom:20px;">Add vendors to your wishlist to save them for later</p></div>';
+  } else {
+    body.innerHTML=`<div style="padding:20px;"><h4 style="margin-bottom:15px;"><i class="fa-solid fa-list"></i> ${wishlistItems.length} Item${wishlistItems.length!==1?'s':''} in Wishlist</h4>`+
+    wishlistItems.map(w=>{
+      let vendor,individual;
+      if(w.type==='package'){
+        vendor=vendors.find(v=>v.id===w.vendorId);
+        if(!vendor)return'';
+        return `<div style="background:#f9f9f9;padding:15px;margin:10px 0;border-radius:8px;border-left:4px solid var(--teal);">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:15px;">
+            <div style="flex:1;">
+              <div style="font-weight:600;color:var(--ink);margin-bottom:5px;">${vendor.name}</div>
+              <div style="color:var(--ink3);font-size:13px;margin-bottom:8px;"><i class="fa-solid fa-layer-group" style="margin-right:6px;color:var(--teal);"></i>${w.packageCount} package${w.packageCount!==1?'s':''}</div>
+              <div style="color:var(--ink3);font-size:13px;"><i class="fa-solid fa-star" style="color:gold;margin-right:6px;"></i>${vendor.rating} • ${vendor.location}</div>
+            </div>
+            <div style="text-align:right;">
+              <button class="book-now-btn" style="padding:8px 12px;font-size:12px;background:var(--teal);color:white;border:none;border-radius:4px;cursor:pointer;margin-bottom:5px;" onclick="removeFromWishlist('${w.id}');renderWishlistUI();"><i class="fa-solid fa-trash"></i> Remove</button>
+              <button class="book-now-btn" style="padding:8px 12px;font-size:12px;background:#50a0d0;color:white;border:none;border-radius:4px;cursor:pointer;display:block;" onclick="closeWishlistModal();openPackages('${w.vendorId}');"><i class="fa-solid fa-arrow-right"></i> View</button>
+            </div>
+          </div>
+        </div>`;
+      } else {
+        individual=individualServices.find(s=>s.id===w.serviceId);
+        if(!individual)return'';
+        return `<div style="background:#f9f9f9;padding:15px;margin:10px 0;border-radius:8px;border-left:4px solid var(--teal);">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:15px;">
+            <div style="flex:1;">
+              <div style="font-weight:600;color:var(--ink);margin-bottom:5px;">${individual.name}</div>
+              <div style="color:var(--ink3);font-size:13px;margin-bottom:8px;"><i class="fa-solid fa-tag" style="margin-right:6px;color:var(--teal);"></i>${w.serviceType}</div>
+              <div style="color:var(--ink3);font-size:13px;"><i class="fa-solid fa-star" style="color:gold;margin-right:6px;"></i>${individual.rating} • ${individual.location}</div>
+            </div>
+            <div style="text-align:right;">
+              <button class="book-now-btn" style="padding:8px 12px;font-size:12px;background:var(--teal);color:white;border:none;border-radius:4px;cursor:pointer;margin-bottom:5px;" onclick="removeFromWishlist('${w.id}');renderWishlistUI();"><i class="fa-solid fa-trash"></i> Remove</button>
+              <button class="book-now-btn" style="padding:8px 12px;font-size:12px;background:#50a0d0;color:white;border:none;border-radius:4px;cursor:pointer;display:block;" onclick="closeWishlistModal();openIndProvider('${w.serviceId}');"><i class="fa-solid fa-arrow-right"></i> View</button>
+            </div>
+          </div>
+        </div>`;
+      }
+    }).join('')+'</div>';
+  }
+}
+
+function closeWishlistModal(){
+  document.getElementById('wishlistOverlay').style.display='none';
+  document.body.style.overflow='';
+}
+
+function showNotification(msg,type='info'){
+  const n=document.createElement('div');
+  n.textContent=msg;
+  n.style.cssText=`position:fixed;bottom:20px;right:20px;padding:12px 20px;background:${type==='success'?'#4caf50':type==='error'?'#f44336':'#2196f3'};color:white;border-radius:4px;font-size:14px;z-index:9999;animation:slideIn 0.3s ease;`;
+  document.body.appendChild(n);
+  setTimeout(()=>{n.style.animation='slideOut 0.3s ease';setTimeout(()=>n.remove(),300);},3000);
+}
+
+// Add style for notification animation
+const style=document.createElement('style');
+style.textContent=`
+  @keyframes slideIn{from{transform:translateX(400px);opacity:0;}to{transform:translateX(0);opacity:1;}}
+  @keyframes slideOut{from{transform:translateX(0);opacity:1;}to{transform:translateX(400px);opacity:0;}}
+  button[data-wishlist-heart]{background:none;border:none;cursor:pointer;font-size:18px;padding:5px;transition:all 0.2s ease;}
+  button[data-wishlist-heart].in-wishlist i{color:var(--teal);}
+`;
+document.head.appendChild(style);
+
+updateWishlistUI();
 
 
 
