@@ -1,27 +1,4 @@
 /* =========================================
-   SIDEBAR NAVIGATION LOGIC
-   ========================================= */
-function openSidebar() {
-    const sidebar = document.getElementById("sidebar");
-    const overlay = document.getElementById("overlay");
-    if (sidebar && overlay) {
-        sidebar.style.left = "0";              
-        overlay.style.display = "block";       
-        document.body.style.overflow = "hidden"; 
-    }
-}
-
-function closeSidebar() {
-    const sidebar = document.getElementById("sidebar");
-    const overlay = document.getElementById("overlay");
-    if (sidebar && overlay) {
-        sidebar.style.left = "-300px";         
-        overlay.style.display = "none";        
-        document.body.style.overflow = "auto";   
-    }
-}
-
-/* =========================================
    REVIEWS PAGE LOGIC
    ========================================= */
 

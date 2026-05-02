@@ -1,32 +1,6 @@
 /* =========================================
-   1. SIDEBAR NAVIGATION LOGIC
+   ADMIN DASHBOARD LOGIC
    ========================================= */
-
-function openSidebar() {
-    const sidebar = document.getElementById("sidebar");
-    const overlay = document.getElementById("overlay");
-    if (sidebar && overlay) {
-        sidebar.style.left = "0";              
-        overlay.style.display = "block";       
-        document.body.style.overflow = "hidden"; // Prevent background scrolling
-    }
-}
-
-function closeSidebar() {
-    const sidebar = document.getElementById("sidebar");
-    const overlay = document.getElementById("overlay");
-    if (sidebar && overlay) {
-        sidebar.style.left = "-300px";         
-        overlay.style.display = "none";        
-        document.body.style.overflow = "auto";   
-    }
-}
-
-// Close sidebar if overlay is clicked
-const overlay = document.getElementById("overlay");
-if(overlay) {
-    overlay.addEventListener('click', closeSidebar);
-}
 
 /* =========================================
    2. DASHBOARD COUNTER ANIMATION

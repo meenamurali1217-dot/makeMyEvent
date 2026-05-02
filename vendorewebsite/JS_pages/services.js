@@ -1,29 +1,4 @@
 /* =========================================
-   SIDEBAR & GENERAL UI
-   ========================================= */
-function openSidebar() {
-    document.getElementById("sidebar").style.left = "0";
-    document.getElementById("overlay").style.display = "block";
-    document.body.style.overflow = "hidden";
-}
-
-function closeSidebar() {
-    document.getElementById("sidebar").style.left = "-300px";
-    document.getElementById("overlay").style.display = "none";
-    document.body.style.overflow = "auto";
-}
-
-const searchInput = document.querySelector('.search-box input');
-if (searchInput) {
-    searchInput.addEventListener('focus', function() {
-        this.parentElement.style.boxShadow = "0 0 8px rgba(33, 150, 243, 0.3)";
-    });
-    searchInput.addEventListener('blur', function() {
-        this.parentElement.style.boxShadow = "none";
-    });
-}
-
-/* =========================================
    SERVICE MANAGEMENT LOGIC
    ========================================= */
 

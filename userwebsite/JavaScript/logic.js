@@ -39,7 +39,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Show success popup with email notification
             showVendorPopup(emailInput.value);
-            showVendorPopup();
 
             // Close modal after popup
             setTimeout(() => {

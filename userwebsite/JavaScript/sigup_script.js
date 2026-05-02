@@ -60,7 +60,7 @@ function getAccount(email, password) {
             password: '1207@Shanmukh',
             role: 'user',
             name: 'Shanmukh',
-            redirect: '../userwebsite/after_login_pages/home.html'
+            redirect: '../after_login_pages/home.html'
         },
         {
             email: 'meena.murali1217@gmail.com',
@@ -80,7 +80,7 @@ function authenticateUser(email, password) {
         return {
             ...user,
             role: 'user',
-            redirect: '../templates/user_page.html'
+            redirect: '../after_login_pages/home.html'
         };
     }
 
@@ -163,8 +163,8 @@ function ensureLocationElement() {
 
     document.querySelectorAll('header.navbar').forEach(header => {
         if (header.querySelector('.user-location')) return;
-        const auth = header.querySelector('.auth');
-        if (auth) {
+        const nav = header.querySelector('nav');
+        if (nav) {
             const loc = document.createElement('div');
             loc.className = 'user-location';
             loc.innerHTML = '<i class="fa-solid fa-location-dot"></i> Loading...';
@@ -174,7 +174,7 @@ function ensureLocationElement() {
             loc.style.display = 'flex';
             loc.style.alignItems = 'center';
             loc.style.gap = '4px';
-            auth.insertAdjacentElement('afterend', loc);
+            nav.insertAdjacentElement('afterend', loc);
         }
     });
 }
@@ -189,10 +189,7 @@ function getDefaultLocationLabel(user) {
     if (user && user.address) {
         return user.address;
     }
-    if (user && typeof user.latitude === 'number' && typeof user.longitude === 'number') {
-        return `Lat ${user.latitude.toFixed(3)}, Lon ${user.longitude.toFixed(3)}`;
-    }
-    return 'Unavailable';
+    return 'Hyderabad';
 }
 
 function startLiveLocationTracking() {
@@ -211,7 +208,8 @@ function startLiveLocationTracking() {
                 user.longitude = lon;
                 saveCurrentUser(user);
             }
-            updateLocationText(`Lat ${lat.toFixed(3)}, Lon ${lon.toFixed(3)}`);
+            // Get area name from coordinates using reverse geocoding
+            getAreaNameFromCoordinates(lat, lon);
         },
         error => {
             const user = getStoredUser();
@@ -228,6 +226,33 @@ function startLiveLocationTracking() {
             timeout: 10000
         }
     );
+}
+
+async function getAreaNameFromCoordinates(lat, lon) {
+    try {
+        const response = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}&zoom=16&addressdetails=1`);
+        const data = await response.json();
+        
+        if (data && data.address) {
+            // Try to get the most specific area name
+            const area = data.address.suburb || 
+                        data.address.neighbourhood || 
+                        data.address.city_district || 
+                        data.address.city || 
+                        data.address.town || 
+                        data.address.village || 
+                        data.address.state || 
+                        `${data.address.state}, ${data.address.country}`;
+            updateLocationText(area || 'Unknown Area');
+        } else {
+            // Fallback if no address data
+            updateLocationText('Location Detected');
+        }
+    } catch (error) {
+        console.error('Error getting area name:', error);
+        // Fallback to coordinates
+        updateLocationText('Location Unavailable');
+    }
 }
 
 function setUserProfileImage(url) {
