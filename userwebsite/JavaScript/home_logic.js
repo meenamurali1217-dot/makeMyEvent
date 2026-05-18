@@ -230,7 +230,7 @@ function logout() {
   if (userConfirmed) {
     sessionStorage.removeItem('currentUser');
     alert("You have successfully logged out!");
-    window.location.href = "../index.html";
+    window.location.href = "../../index.html";
   }
 }
 
