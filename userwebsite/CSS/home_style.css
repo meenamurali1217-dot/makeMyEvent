@@ -16,6 +16,7 @@ body {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -761,6 +762,8 @@ footer i {
   footer {
     grid-template-columns: 1fr 1fr;
   }
+
+  .social-icons { justify-content: center; }
 }
 
 
@@ -798,6 +801,8 @@ footer i {
     text-align: center;
   }
 
+  .social-icons { justify-content: center; }
+
   .end {
     border-left: none;
     padding-left: 0;
@@ -823,4 +828,6 @@ footer i {
   .search-box input {
     font-size: 14px;
   }
+
+  .social-icons { justify-content: center; }
 }

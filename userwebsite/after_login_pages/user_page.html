@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <link rel="stylesheet" href="../CSS/user_style.css">
+    <link rel="stylesheet" href="../../responsive.css">
 
 </head>
 
@@ -43,9 +44,9 @@
           >
         </nav>
 
-        <div class="icon-btn">
+        <div class="icon-btn" onclick="openWishlistModal()">
       ❤️
-      <span>Wishlist</span>
+      <span>Wishlist <span id="wishlist-count" style="display:none;"></span></span>
     </div>
     
        
@@ -57,8 +58,7 @@
     </div>
 
     <div id="userDropdown" class="user-dropdown">
-      <a href="../templates/user_page.html"><p>👤 My Profile</p></a>
-      <p onclick="changePassword()">🔑 Change Password</p>
+      <a href="./user_page.html"><p>👤 My Profile</p></a>
       <p onclick="logout()">⏻ Logout</p>
     </div>
   </div>

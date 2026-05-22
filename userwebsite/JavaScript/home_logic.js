@@ -250,9 +250,8 @@ window.onclick = function(e) {
   }
 }
 
-/* ============================================================
-   WISHLIST MANAGEMENT FOR HOME PAGE
-   ============================================================ */
+  //  WISHLIST MANAGEMENT FOR HOME PAGE
+
 let wishlistItems=[];
 try{wishlistItems=JSON.parse(localStorage.getItem('evh_wishlist')||'[]');}catch(e){wishlistItems=[];}
 

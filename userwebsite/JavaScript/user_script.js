@@ -49,9 +49,9 @@ if (searchInput) {
 }
 
 
-/* =========================================
-   USER MENU DROPDOWN LOGIC
-   ========================================= */
+
+  //  USER MENU DROPDOWN LOGIC
+
 
 /**
  * Toggle the user menu dropdown visibility
@@ -120,6 +120,23 @@ function changePassword() {
     // Option 3: Open a modal (uncomment if you add CSS for modal)
     // showChangePasswordModal();
 }
+/* ============================================================
+   WISHLIST MANAGEMENT FOR HOME PAGE
+   ============================================================ */
+   
+let wishlistItems=[];
+try{wishlistItems=JSON.parse(localStorage.getItem('evh_wishlist')||'[]');}catch(e){wishlistItems=[];}
+
+function updateWishlistBadge(){
+  const badge=document.getElementById('wishlist-count');
+  if(wishlistItems.length>0){
+    badge.style.display='inline';
+    badge.textContent=`(${wishlistItems.length})`;
+  } else {
+    badge.style.display='none';
+  }
+}
+
 
 function openWishlistModal(){
   // Create modal

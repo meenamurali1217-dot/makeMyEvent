@@ -121,6 +121,23 @@ function uploadPhoto(event) {
   reader.readAsDataURL(file);
 }
 
+/* ============================================================
+   WISHLIST MANAGEMENT FOR HOME PAGE
+   ============================================================ */
+   
+let wishlistItems=[];
+try{wishlistItems=JSON.parse(localStorage.getItem('evh_wishlist')||'[]');}catch(e){wishlistItems=[];}
+
+function updateWishlistBadge(){
+  const badge=document.getElementById('wishlist-count');
+  if(wishlistItems.length>0){
+    badge.style.display='inline';
+    badge.textContent=`(${wishlistItems.length})`;
+  } else {
+    badge.style.display='none';
+  }
+}
+
 function openWishlistModal(){
   // Create modal
   const modal=document.createElement('div');

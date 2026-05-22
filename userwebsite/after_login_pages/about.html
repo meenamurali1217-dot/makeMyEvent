@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="../CSS/about_style.css">
+  <link rel="stylesheet" href="../../responsive.css">
 </head>
 <body>
 
@@ -39,9 +40,9 @@
           >
         </nav>
 
-        <div class="icon-btn">
+        <div class="icon-btn" onclick="openWishlistModal()">
       ❤️
-      <span>Wishlist</span>
+      <span>Wishlist <span id="wishlist-count" style="display:none;"></span></span>
     </div>
     
         
@@ -53,7 +54,7 @@
     </div>
 
     <div id="userDropdown" class="user-dropdown">
-      <a href="../templates/user_page.html"><p>👤 My Profile</p></a>
+      <a href="./user_page.html"><p>👤 My Profile</p></a>
       <p onclick="changePassword()">🔑 Change Password</p>
       <p onclick="logout()">⏻ Logout</p>
     </div>
@@ -379,17 +380,6 @@
   <script src="../JavaScript/sigup_script.js"></script>
   <script src="../JavaScript/about_logic.js"></script>
 
-  <!-- WISHLIST MODAL -->
-  <div class="modal-overlay" id="wishlistOverlay" style="display:none;">
-    <div class="modal-box" style="max-height:80vh;overflow-y:auto;">
-      <div class="modal-head">
-        <div><div class="modal-pkg-label" style="color:var(--teal);">❤️ MY WISHLIST</div><div class="modal-pkg-name" id="wishlistTitle">Saved Vendors</div></div>
-        <button class="modal-close" onclick="closeWishlistModal()"><i class="fa-solid fa-xmark"></i></button>
-      </div>
-      <div class="modal-body" id="wishlistBody">
-        <!-- Wishlist items will be rendered here -->
-      </div>
-    </div>
-  </div>
+
 </body>
 </html>
